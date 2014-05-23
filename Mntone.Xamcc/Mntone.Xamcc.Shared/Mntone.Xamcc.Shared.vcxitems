@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{45fce75d-b0fc-4b28-b409-789569dcdc7b}</ItemsProjectGuid>
+    <ItemsRootNamespace>Mntone_Xamcc</ItemsRootNamespace>
+    <ItemsProjectName>Mntone.Xamcc.Shared</ItemsProjectName>
+    <CodeSharingProject>248F659F-DAC5-46E8-AC09-60EC9FC95053</CodeSharingProject>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectPreprocessor.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\DispatcherHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SaveStateEventArgs.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LoadStateEventArgs.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LoadStateEventHandler.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)NavigationHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SaveStateEventHandler.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\Xamcc.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\ViewModelHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SaveStateEventArgs.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LoadStateEventArgs.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)NavigationHelper.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+</Project>
