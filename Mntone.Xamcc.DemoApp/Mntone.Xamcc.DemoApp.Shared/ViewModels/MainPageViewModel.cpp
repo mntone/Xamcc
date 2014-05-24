@@ -25,6 +25,14 @@ MainPageViewModel::MainPageViewModel( CoreDispatcher^ dispatcher )
 			return ( ref new DateTimeFormatter( "longtime" ) )->Format( from );
 		},
 		dispatcher );
+	ViewModelCollection2 = ViewModelHelper::CreateDispatcherDeque<Windows::Foundation::DateTime, String^>(
+		processor_.GetDeque(),
+		[]( Windows::Foundation::DateTime from )
+		{
+			using namespace Windows::Globalization::DateTimeFormatting;
+			return ( ref new DateTimeFormatter( "longtime" ) )->Format( from );
+		},
+		dispatcher );
 }
 
 void MainPageViewModel::OnIsButtonEnabledPropertyChanged( DependencyObject^ d, DependencyPropertyChangedEventArgs^ e )
@@ -42,3 +50,4 @@ IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsButtonEnabled,
 IMPL_DP_GETSET( MainPageViewModel, RelayCommand, ButtonCommand, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, RelayCommand, ButtonAlwaysCanExecuteCommand, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, Collections::Vector<String^>, ViewModelCollection, nullptr )
+IMPL_DP_GETSET( MainPageViewModel, Collections::Deque<String^>, ViewModelCollection2, nullptr )

@@ -54,6 +54,7 @@
 				<RowDefinition
 					Height="Auto" />
 				<RowDefinition />
+				<RowDefinition />
 			</Grid.RowDefinitions>
 
 			<StackPanel
@@ -103,6 +104,10 @@
 			<ListBox
 				Grid.Row="2"
 				ItemsSource="{Binding ViewModelCollection}" />
+
+			<ListBox
+				Grid.Row="3"
+				ItemsSource="{Binding ViewModelCollection2}" />
 		</Grid>
 	</Grid>
 </Page>

@@ -20,9 +20,11 @@ namespace Mntone { namespace Xamcc {
 		DataProcessor();
 
 		Platform::Collections::Vector<Windows::Foundation::DateTime>^ GetVector();
+		Platform::Collections::Deque<Windows::Foundation::DateTime>^ GetDeque();
 
 	private:
 		Platform::Collections::Vector<Windows::Foundation::DateTime>^ Vector_;
+		Platform::Collections::Deque<Windows::Foundation::DateTime>^ Deque_;
 
 		Windows::System::Threading::ThreadPoolTimer^ timer_;
 	};

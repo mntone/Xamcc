@@ -41,6 +41,11 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			Platform::Collections::Vector<Platform::String^>^ get();
 			void set( Platform::Collections::Vector<Platform::String^>^ value );
 		}
+		property Platform::Collections::Deque<Platform::String^>^ ViewModelCollection2
+		{
+			Platform::Collections::Deque<Platform::String^>^ get();
+			void set( Platform::Collections::Deque<Platform::String^>^ value );
+		}
 
 	private:
 		Mntone::Xamcc::DispatcherHelper^ dispatcherHelper_;
@@ -51,7 +56,8 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			^ IsButtonEnabledProperty_,
 			^ ButtonCommandProperty_,
 			^ ButtonAlwaysCanExecuteCommandProperty_,
-			^ ViewModelCollectionProperty_;
+			^ ViewModelCollectionProperty_,
+			^ ViewModelCollection2Property_;
 	};
 
 } } } }

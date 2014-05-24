@@ -9,12 +9,16 @@ using namespace Mntone::Xamcc;
 
 DataProcessor::DataProcessor()
 	: Vector_( ref new Vector<DateTime>() )
+	, Deque_( ref new Deque<DateTime>() )
 {
 	auto calender = ref new Windows::Globalization::Calendar();
 	calender->SetToNow();
 	Vector_->Append( calender->GetDateTime() );
 	Vector_->Append( calender->GetDateTime() );
 	Vector_->Append( calender->GetDateTime() );
+	Deque_->Prepend( calender->GetDateTime() );
+	Deque_->Prepend( calender->GetDateTime() );
+	Deque_->Prepend( calender->GetDateTime() );
 
 	TimeSpan timeSpan;
 	timeSpan.Duration = 1 * 10000000;
@@ -24,6 +28,7 @@ DataProcessor::DataProcessor()
 			auto calender = ref new Windows::Globalization::Calendar();
 			calender->SetToNow();
 			Vector_->Append( calender->GetDateTime() );
+			Deque_->Prepend( calender->GetDateTime() );
 		} ),
 		timeSpan );
 }
@@ -31,4 +36,9 @@ DataProcessor::DataProcessor()
 Vector<DateTime>^ DataProcessor::GetVector()
 {
 	return Vector_;
+}
+
+Deque<DateTime>^ DataProcessor::GetDeque()
+{
+	return Deque_;
 }

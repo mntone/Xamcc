@@ -33,6 +33,7 @@
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition />
+				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
 			<StackPanel
@@ -81,7 +82,11 @@
 
 			<ListBox
 				Grid.Column="1"
-				ItemsSource="{Binding ViewModelCollection}"/>
+				ItemsSource="{Binding ViewModelCollection}" />
+
+			<ListBox
+				Grid.Column="2"
+				ItemsSource="{Binding ViewModelCollection2}" />
 		</Grid>
 
 		<Grid>
