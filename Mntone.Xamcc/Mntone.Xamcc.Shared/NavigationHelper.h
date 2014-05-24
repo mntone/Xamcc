@@ -1,6 +1,4 @@
 #pragma once
-#include "LoadStateEventHandler.h"
-#include "SaveStateEventHandler.h"
 #include "include/Commands/RelayCommand.h"
 
 namespace Mntone { namespace Xamcc {
@@ -42,10 +40,6 @@ namespace Mntone { namespace Xamcc {
 		void OnAcceleratorKeyActivated( Windows::UI::Core::CoreDispatcher^ sender, Windows::UI::Core::AcceleratorKeyEventArgs^ e );
 		void OnPointerPressed( Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ e );
 #endif
-
-	public:
-		event LoadStateEventHandler^ LoadState;
-		event SaveStateEventHandler^ SaveState;
 
 	private:
 		property Mntone::Xamcc::Commands::RelayCommand^ GoHomeCommand

@@ -10,6 +10,12 @@ using namespace Mntone::Xamcc;
 DataProcessor::DataProcessor()
 	: Vector_( ref new Vector<DateTime>() )
 {
+	auto calender = ref new Windows::Globalization::Calendar();
+	calender->SetToNow();
+	Vector_->Append( calender->GetDateTime() );
+	Vector_->Append( calender->GetDateTime() );
+	Vector_->Append( calender->GetDateTime() );
+
 	TimeSpan timeSpan;
 	timeSpan.Duration = 1 * 10000000;
 	timer_ = ThreadPoolTimer::CreatePeriodicTimer(

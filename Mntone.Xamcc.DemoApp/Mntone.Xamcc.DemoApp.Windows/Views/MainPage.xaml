@@ -94,6 +94,7 @@
 			<Button
 				x:Name="backButton"
 				Margin="39,59,40,0"
+				Width="41"
 				Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
 				Style="{StaticResource NavigationBackButtonNormalStyle}"
 				VerticalAlignment="Top"

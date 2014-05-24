@@ -8,23 +8,21 @@ namespace Mntone { namespace Xamcc {
 	{
 	public:
 		template<typename TModel, typename TViewModel>
-		static Platform::Collections::Vector<TViewModel>^ CreateDispatcherVector(
-			Platform::Collections::Vector<TModel>^ source,
-			std::function<TViewModel( TModel )> converter,
-			Windows::UI::Core::CoreDispatcher^ dispatcher )
+		static ::Platform::Collections::Vector<TViewModel>^ CreateDispatcherVector(
+			::Platform::Collections::Vector<TModel>^ source,
+			::std::function<TViewModel( TModel )> converter,
+			::Windows::UI::Core::CoreDispatcher^ dispatcher )
 		{
-			using namespace Windows::Foundation::Collections;
+			using namespace ::Windows::Foundation::Collections;
+			using namespace ::Windows::UI::Core;
 
 			if( source == nullptr || dispatcher == nullptr )
 			{
-				throw ref new Platform::NullReferenceException();
+				throw ref new ::Platform::NullReferenceException();
 			}
 
-			auto result = ref new Platform::Collections::Vector<TViewModel>();
-			for( auto&& model : source )
-			{
-				result->Append( converter( model ) );
-			}
+			auto result = ref new ::Platform::Collections::Vector<TViewModel>( source->Size );
+			::std::transform( begin( source ), end( source ), begin( result ), converter );
 
 			source->VectorChanged += ref new VectorChangedEventHandler<TModel>(
 			[result, converter, dispatcher]( IObservableVector<TModel>^ sender, IVectorChangedEventArgs^ e )
@@ -32,43 +30,35 @@ namespace Mntone { namespace Xamcc {
 				switch( e->CollectionChange )
 				{
 				case CollectionChange::Reset:
-					dispatcher->RunAsync(
-						Windows::UI::Core::CoreDispatcherPriority::Low,
-						ref new Windows::UI::Core::DispatchedHandler( [sender, converter, result]
+					dispatcher->RunAsync( CoreDispatcherPriority::Low, ref new DispatchedHandler( [sender, converter, result]
+					{
+						result->Clear();
+						for( auto&& model : sender )
 						{
-							result->Clear();
-							for( auto&& model : sender )
-							{
-								result->Append( converter( model ) );
-							}
-						} ) );
+							result->Append( converter( model ) );
+						}
+					} ) );
 					break;
 
 				case CollectionChange::ItemInserted:
-					dispatcher->RunAsync(
-						Windows::UI::Core::CoreDispatcherPriority::Low,
-						ref new Windows::UI::Core::DispatchedHandler( [sender, e, converter, result]
-						{
-							result->InsertAt( e->Index, converter( sender->GetAt( e->Index ) ) );
-						} ) );
+					dispatcher->RunAsync( CoreDispatcherPriority::Low, ref new DispatchedHandler( [sender, e, converter, result]
+					{
+						result->InsertAt( e->Index, converter( sender->GetAt( e->Index ) ) );
+					} ) );
 					break;
 
 				case CollectionChange::ItemRemoved:
-					dispatcher->RunAsync(
-						Windows::UI::Core::CoreDispatcherPriority::Low,
-						ref new Windows::UI::Core::DispatchedHandler( [converter, e, result]
-						{
-							result->RemoveAt( e->Index );
-						} ) );
+					dispatcher->RunAsync( CoreDispatcherPriority::Low, ref new DispatchedHandler( [converter, e, result]
+					{
+						result->RemoveAt( e->Index );
+					} ) );
 					break;
 
 				case CollectionChange::ItemChanged:
-					dispatcher->RunAsync(
-						Windows::UI::Core::CoreDispatcherPriority::Low,
-						ref new Windows::UI::Core::DispatchedHandler( [sender, e, converter, result]
-						{
-							result->SetAt( e->Index, converter( sender->GetAt( e->Index ) ) );
-						} ) );
+					dispatcher->RunAsync( CoreDispatcherPriority::Low, ref new DispatchedHandler( [sender, e, converter, result]
+					{
+						result->SetAt( e->Index, converter( sender->GetAt( e->Index ) ) );
+					} ) );
 					break;
 				}
 			} );

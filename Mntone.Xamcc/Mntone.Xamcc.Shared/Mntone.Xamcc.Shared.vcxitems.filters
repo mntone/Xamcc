@@ -3,10 +3,6 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)NavigationHelper.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)LoadStateEventArgs.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)LoadStateEventHandler.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SaveStateEventArgs.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SaveStateEventHandler.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Xamcc.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -28,8 +24,6 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)NavigationHelper.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)LoadStateEventArgs.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SaveStateEventArgs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
