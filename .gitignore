@@ -2,6 +2,7 @@
 /obj
 /ipch
 /packages
+/nuget
 Generated Files
 *.opensdf
 *.sdf

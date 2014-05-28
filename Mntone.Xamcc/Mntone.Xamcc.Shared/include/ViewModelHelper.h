@@ -54,7 +54,7 @@ namespace Mntone { namespace Xamcc {
 					break;
 
 				case CollectionChange::ItemRemoved:
-					dispatcher->RunAsync( CoreDispatcherPriority::Low, ref new DispatchedHandler( [converter, e, result]
+					dispatcher->RunAsync( CoreDispatcherPriority::Low, ref new DispatchedHandler( [e, result]
 					{
 						result->RemoveAt( e->Index );
 					} ) );
@@ -120,7 +120,7 @@ namespace Mntone { namespace Xamcc {
 					break;
 
 				case CollectionChange::ItemRemoved:
-					dispatcher->RunAsync( CoreDispatcherPriority::Low, ref new DispatchedHandler( [converter, e, result]
+					dispatcher->RunAsync( CoreDispatcherPriority::Low, ref new DispatchedHandler( [e, result]
 					{
 						result->RemoveAt( e->Index );
 					} ) );
