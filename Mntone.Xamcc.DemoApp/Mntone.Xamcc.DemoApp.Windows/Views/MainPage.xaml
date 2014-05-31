@@ -23,6 +23,7 @@
 		</Grid.RowDefinitions>
 
 		<Grid
+			x:Name="contentGrid"
 			Grid.Row="1"
 			Margin="120,0,0,80">
 			<Grid.RowDefinitions>
@@ -48,7 +49,8 @@
 			</StackPanel>
 
 			<Grid
-				Grid.Row="1">
+				Grid.Row="1"
+				Grid.ColumnSpan="3">
 				<Grid.RowDefinitions>
 					<RowDefinition />
 					<RowDefinition />
@@ -78,6 +80,12 @@
 					Grid.Row="2"
 					Grid.ColumnSpan="2"
 					IsOn="{Binding IsButtonEnabled, Mode=TwoWay}" />
+
+				<TextBlock
+					x:Name="visualStateName"
+					Grid.Row="3"
+					Foreground="White"
+					Text="Unknown" />
 			</Grid>
 
 			<ListBox
@@ -92,17 +100,17 @@
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition
-					Width="Auto" />
+					x:Name="backButtonColumn"
+					Width="120" />
 				<ColumnDefinition
 					Width="*" />
 			</Grid.ColumnDefinitions>
 			<Button
 				x:Name="backButton"
-				Margin="39,59,40,0"
-				Width="41"
+				Margin="39,0,0,40"
 				Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
 				Style="{StaticResource NavigationBackButtonNormalStyle}"
-				VerticalAlignment="Top"
+				VerticalAlignment="Bottom"
 				AutomationProperties.Name="Back"
 				AutomationProperties.AutomationId="BackButton"
 				AutomationProperties.ItemType="Navigation Button" />
@@ -116,5 +124,97 @@
 				VerticalAlignment="Bottom"
 				Margin="0,0,30,40" />
 		</Grid>
+
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup
+				x:Name="PageSizeViewStates">
+				<VisualState
+					x:Name="PageSizeCompact">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="backButtonColumn"
+							Storyboard.TargetProperty="Width">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="60" />
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="backButton"
+							Storyboard.TargetProperty="Margin">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="19,0,0,33" />
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="pageTitle"
+							Storyboard.TargetProperty="Style">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="{StaticResource SubheaderTextBlockStyle}" />
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="contentGrid"
+							Storyboard.TargetProperty="Margin">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="60,0,0,80" />
+						</ObjectAnimationUsingKeyFrames>
+
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="visualStateName"
+							Storyboard.TargetProperty="Text">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="Compact" />
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="visualStateName"
+							Storyboard.TargetProperty="Foreground">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="Yellow" />
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+				<VisualState
+					x:Name="PageSizeMiddle">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="visualStateName"
+							Storyboard.TargetProperty="Text">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="Middle" />
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="visualStateName"
+							Storyboard.TargetProperty="Foreground">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="Pink" />
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+				<VisualState
+					x:Name="PageSizeFull">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="visualStateName"
+							Storyboard.TargetProperty="Text">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="Full" />
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames
+							Storyboard.TargetName="visualStateName"
+							Storyboard.TargetProperty="Foreground">
+							<DiscreteObjectKeyFrame
+								KeyTime="0"
+								Value="SkyBlue" />
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
 	</Grid>
 </Page>

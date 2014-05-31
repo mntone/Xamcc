@@ -1,8 +1,12 @@
 #pragma once
 
 #ifndef DEPENDENCY_OBJECT_HELPER_USE
+#define DEPENDENCY_OBJECT_HELPER_USE 1
+#endif
+
+#ifdef DEPENDENCY_OBJECT_HELPER_USE
 #define __IMPL_DP_PROP(__NAME__) __NAME__##Property_
-#define __IMPL_DP_GET(__CLASS__, __TYPE__, __NAME__) __TYPE__^ __CLASS__::__NAME__::get(){return dynamic_cast<__TYPE__^>(GetValue(__IMPL_DP_PROP(__NAME__)));}
+#define __IMPL_DP_GET(__CLASS__, __TYPE__, __NAME__) __TYPE__^ __CLASS__::__NAME__::get(){return safe_cast<__TYPE__^>(GetValue(__IMPL_DP_PROP(__NAME__)));}
 #define __IMPL_DP_SET(__CLASS__, __TYPE__, __NAME__) void __CLASS__::__NAME__::set(__TYPE__^ value){SetValue(__IMPL_DP_PROP(__NAME__),value);}
 #define __IMPL_DP_VALUE_GET(__CLASS__, __TYPE__, __NAME__) __TYPE__ __CLASS__::__NAME__::get(){return static_cast<__TYPE__>(GetValue(__IMPL_DP_PROP(__NAME__)));}
 #define __IMPL_DP_VALUE_SET(__CLASS__, __TYPE__, __NAME__) void __CLASS__::__NAME__::set(__TYPE__ value){SetValue(__IMPL_DP_PROP(__NAME__),value);}

@@ -33,17 +33,13 @@ NavigationHelper::NavigationHelper( Page^ page )
 	GoForwardCommand = ref new Commands::RelayCommand( [this]( Object^ ) { GoForward(); }, [this]( Object^ ) { return CanGoForward(); } );
 }
 
-void NavigationHelper::Release()
+void NavigationHelper::Release( Page^ page )
 {
-	auto page = page_.Resolve<Page>();
-	if( page != nullptr )
-	{
-		page->Loaded -= loadedEventToken_;
-		page->Unloaded -= unloadedEventToken_;
+	page->Loaded -= loadedEventToken_;
+	page->Unloaded -= unloadedEventToken_;
 #if WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP
-		page->SizeChanged -= sizeChangedEventToken_;
+	page->SizeChanged -= sizeChangedEventToken_;
 #endif
-	}
 
 	page_ = nullptr;
 }
@@ -76,14 +72,11 @@ void NavigationHelper::OnLoaded( Object^ sender, RoutedEventArgs^ e )
 	backPressedEventToken_ = HardwareButtons::BackPressed
 		+= ref new EventHandler<BackPressedEventArgs^>( this, &NavigationHelper::OnHardwareButtonBackPressed );
 #else
-	auto page = page_.Resolve<Page>();
-	if( page != nullptr )
+	auto page = safe_cast<Page^>( sender );
+	const auto& bounds = Window::Current->Bounds;
+	if( page->ActualHeight == bounds.Height && page->ActualWidth == bounds.Width )
 	{
-		const auto& currentBounds = Window::Current->Bounds;
-		if( page->ActualHeight == currentBounds.Height && page->ActualWidth == currentBounds.Width )
-		{
-			AddHookToWindow();
-		}
+		AddHookToWindow();
 	}
 #endif
 }
@@ -99,24 +92,27 @@ void NavigationHelper::OnUnloaded( Object^ sender, RoutedEventArgs^ e )
 	}
 #endif
 
-	Release();
+	auto page = safe_cast<Page^>( sender );
+	Release( page );
 }
 
 #if WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP
 void NavigationHelper::OnSizeChanged( Object^ sender, SizeChangedEventArgs^ e )
 {
-	auto page = page_.Resolve<Page>();
-	if( page != nullptr )
+	const auto& currentBounds = Window::Current->Bounds;
+	if( e->NewSize.Height == currentBounds.Height && e->NewSize.Width == currentBounds.Width )
 	{
-		const auto& currentBounds = Window::Current->Bounds;
-		if( page->ActualHeight == currentBounds.Height && page->ActualWidth == currentBounds.Width && !navigationShortcutsRegistered_ )
+		if( !navigationShortcutsRegistered_ )
 		{
 			AddHookToWindow();
 		}
 	}
-	else if( navigationShortcutsRegistered_ )
+	else
 	{
-		RemoveHookToWindow();
+		if( navigationShortcutsRegistered_ )
+		{
+			RemoveHookToWindow();
+		}
 	}
 }
 #endif

@@ -16,6 +16,8 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace Views {
 		}
 
 	private:
+		Mntone::Xamcc::PageSizeStateHelper^ pageSizeStateHelper_;
+
 		static Windows::UI::Xaml::DependencyProperty^ NavigationHelperProperty_;
 	};
 

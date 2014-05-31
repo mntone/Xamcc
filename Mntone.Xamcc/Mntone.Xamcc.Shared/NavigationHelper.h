@@ -22,7 +22,7 @@ namespace Mntone { namespace Xamcc {
 		bool GoForward();
 
 	private:
-		void Release();
+		void Release( Windows::UI::Xaml::Controls::Page^ page );
 
 #if WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP
 		void AddHookToWindow();
