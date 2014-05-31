@@ -2,6 +2,7 @@
 
 namespace Mntone { namespace Xamcc {
 
+	[Windows::Foundation::Metadata::WebHostHidden]
 	public ref class PageSizeStateHelper sealed
 	{
 	public:
