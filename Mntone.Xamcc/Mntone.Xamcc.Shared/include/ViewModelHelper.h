@@ -9,7 +9,7 @@ namespace Mntone { namespace Xamcc {
 	public:
 		template<typename TModel, typename TViewModel>
 		static ::Platform::Collections::Vector<TViewModel>^ CreateDispatcherVector(
-			::Windows::Foundation::Collections::IVector<TModel>^ source,
+			::Windows::Foundation::Collections::IObservableVector<TModel>^ source,
 			::std::function<TViewModel( TModel )> converter,
 			::Windows::UI::Core::CoreDispatcher^ dispatcher )
 		{
@@ -21,16 +21,10 @@ namespace Mntone { namespace Xamcc {
 				throw ref new ::Platform::NullReferenceException();
 			}
 
-			auto observableSource = dynamic_cast<IObservableVector<TModel>^>( source );
-			if( observableSource == nullptr )
-			{
-				throw ref new ::Platform::InvalidArgumentException();
-			}
-
 			auto result = ref new ::Platform::Collections::Vector<TViewModel>( source->Size );
 			::std::transform( begin( source ), end( source ), begin( result ), converter );
 
-			observableSource->VectorChanged += ref new VectorChangedEventHandler<TModel>(
+			source->VectorChanged += ref new VectorChangedEventHandler<TModel>(
 			[result, converter, dispatcher]( IObservableVector<TModel>^ sender, IVectorChangedEventArgs^ e )
 			{
 				switch( e->CollectionChange )
@@ -75,7 +69,7 @@ namespace Mntone { namespace Xamcc {
 #ifdef VECTOR_EXTENSION
 		template<typename TModel, typename TViewModel>
 		static ::Platform::Collections::Deque<TViewModel>^ CreateDispatcherDeque(
-			::Windows::Foundation::Collections::IVector<TModel>^ source,
+			::Windows::Foundation::Collections::IObservableVector<TModel>^ source,
 			::std::function<TViewModel( TModel )> converter,
 			::Windows::UI::Core::CoreDispatcher^ dispatcher )
 		{
@@ -87,16 +81,10 @@ namespace Mntone { namespace Xamcc {
 				throw ref new ::Platform::NullReferenceException();
 			}
 
-			auto observableSource = dynamic_cast<IObservableVector<TModel>^>( source );
-			if( observableSource == nullptr )
-			{
-				throw ref new ::Platform::InvalidArgumentException();
-			}
-
 			auto result = ref new ::Platform::Collections::Deque<TViewModel>( source->Size );
 			::std::transform( begin( source ), end( source ), begin( result ), converter );
 
-			observableSource->VectorChanged += ref new VectorChangedEventHandler<TModel>(
+			source->VectorChanged += ref new VectorChangedEventHandler<TModel>(
 				[result, converter, dispatcher]( IObservableVector<TModel>^ sender, IVectorChangedEventArgs^ e )
 			{
 				switch( e->CollectionChange )

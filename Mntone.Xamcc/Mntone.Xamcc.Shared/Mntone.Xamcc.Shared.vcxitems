@@ -21,12 +21,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Xamcc.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\ViewModelHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)NavigationHelper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />

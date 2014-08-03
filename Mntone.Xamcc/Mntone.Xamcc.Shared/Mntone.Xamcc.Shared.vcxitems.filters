@@ -18,12 +18,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\ViewModelHelper.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)NavigationHelper.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">

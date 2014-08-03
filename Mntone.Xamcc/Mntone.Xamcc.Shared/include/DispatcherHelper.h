@@ -15,14 +15,14 @@ namespace Mntone { namespace Xamcc {
 			: Dispatcher_( dispatcher )
 		{ }
 
-		Windows::Foundation::IAsyncAction^ InvokeAsync( std::function<void( void )> func )
+		inline Windows::Foundation::IAsyncAction^ InvokeAsync( std::function<void( void )> func )
 		{
 			return Dispatcher_->RunAsync(
 				Windows::UI::Core::CoreDispatcherPriority::Normal,
 				ref new Windows::UI::Core::DispatchedHandler( func ) );
 		}
 
-		Windows::Foundation::IAsyncAction^ InvokeAsync( Windows::UI::Core::CoreDispatcherPriority priority, std::function<void( void )> func )
+		inline Windows::Foundation::IAsyncAction^ InvokeAsync( Windows::UI::Core::CoreDispatcherPriority priority, std::function<void( void )> func )
 		{
 			return Dispatcher_->RunAsync( priority, ref new Windows::UI::Core::DispatchedHandler( func ) );
 		}
