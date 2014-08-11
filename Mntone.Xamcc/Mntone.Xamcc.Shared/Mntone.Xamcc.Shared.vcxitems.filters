@@ -19,6 +19,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
@@ -26,6 +29,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)NavigationHelper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -33,6 +39,9 @@
     </Filter>
     <Filter Include="include\Commands">
       <UniqueIdentifier>{c6c44209-1266-4dab-b5fc-c73898ce8fe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters">
+      <UniqueIdentifier>{9bed6a68-ab37-470a-a408-b3b95f6d0b2a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
