@@ -10,7 +10,7 @@ using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls::Primitives;
 using namespace Windows::UI::Xaml::Interop;
 using namespace Windows::UI::Xaml::Media;
-using namespace Mntone::Xamcc;
+using namespace Mntone::Xamcc::Controls;
 
 #define VTH2_RETURN return ref new VectorView<DependencyObject^>( move( data ) );
 

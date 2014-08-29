@@ -10,12 +10,12 @@ namespace Mntone { namespace Xamcc {
 		PageSizeStateHelper( Windows::UI::Xaml::Controls::Page^ page );
 
 		[Windows::Foundation::Metadata::Overload( "CreateInstanceWithWidthThreshold" )]
-		PageSizeStateHelper( Windows::UI::Xaml::Controls::Page^ page, float32 widthThreashold );
+		PageSizeStateHelper( Windows::UI::Xaml::Controls::Page^ page, float32 widthThreshold );
 
 		[Windows::Foundation::Metadata::Overload( "CreateInstanceWithBothWidthThresholds" )]
 		PageSizeStateHelper(
 			Windows::UI::Xaml::Controls::Page^ page,
-			float32 widthThreasholdBetweenCompactAndMiddle,
+			float32 widthThresholdBetweenCompactAndMiddle,
 			float32 widthThresholdBetweenMiddleAndFull );
 		
 	private:

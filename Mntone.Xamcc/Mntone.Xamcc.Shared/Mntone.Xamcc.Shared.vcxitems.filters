@@ -18,9 +18,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\ViewModelHelper.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.h">
       <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Controls\VisualTreeHelper2.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectCollectionCpp.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -28,9 +33,11 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)NavigationHelper.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.cpp">
       <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Controls\VisualTreeHelper2.cpp">
+      <Filter>Controls</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +49,9 @@
     </Filter>
     <Filter Include="Converters">
       <UniqueIdentifier>{9bed6a68-ab37-470a-a408-b3b95f6d0b2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controls">
+      <UniqueIdentifier>{e7c3df91-9aab-42a9-aaff-7a47482e7bc1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

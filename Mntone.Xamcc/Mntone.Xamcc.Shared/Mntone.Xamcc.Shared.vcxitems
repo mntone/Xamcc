@@ -15,6 +15,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectCollectionCpp.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectPreprocessor.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DispatcherHelper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)NavigationHelper.h" />
@@ -22,7 +23,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Xamcc.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\ViewModelHelper.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Controls\VisualTreeHelper2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.cpp" />
@@ -30,7 +31,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)VisualTreeHelper2.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Controls\VisualTreeHelper2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />

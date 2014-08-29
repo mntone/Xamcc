@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Mntone { namespace Xamcc {
+namespace Mntone { namespace Xamcc { namespace Controls {
 
 	[Windows::Foundation::Metadata::WebHostHidden]
 	public ref class VisualTreeHelper2 sealed
@@ -28,4 +28,4 @@ namespace Mntone { namespace Xamcc {
 		static std::vector<Windows::UI::Xaml::DependencyObject^> GetSiblingsInternal( Windows::UI::Xaml::DependencyObject^ reference );
 	};
 
-} }
+} } }
