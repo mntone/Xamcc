@@ -7,42 +7,45 @@ namespace Mntone { namespace Xamcc {
 	{
 	public:
 		[Windows::Foundation::Metadata::Overload( "CreateInstance" )]
-		PageSizeStateHelper( Windows::UI::Xaml::Controls::Page^ page );
+		PageSizeStateHelper( ::Windows::UI::Xaml::Controls::Page^ page );
 
 		[Windows::Foundation::Metadata::Overload( "CreateInstanceWithWidthThreshold" )]
-		PageSizeStateHelper( Windows::UI::Xaml::Controls::Page^ page, float32 widthThreshold );
+		PageSizeStateHelper( ::Windows::UI::Xaml::Controls::Page^ page, float32 widthThreshold );
 
 		[Windows::Foundation::Metadata::Overload( "CreateInstanceWithBothWidthThresholds" )]
 		PageSizeStateHelper(
-			Windows::UI::Xaml::Controls::Page^ page,
+			::Windows::UI::Xaml::Controls::Page^ page,
 			float32 widthThresholdBetweenCompactAndMiddle,
 			float32 widthThresholdBetweenMiddleAndFull );
 		
 	private:
-		void OnUnloaded( Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e );
-		void OnSizeChanged( Platform::Object^ sender, Windows::UI::Xaml::SizeChangedEventArgs^ e );
+		void Update( ::Windows::UI::Xaml::Controls::Page^ page, float32 width );
+
+		void OnLoaded( ::Platform::Object ^sender, ::Windows::UI::Xaml::RoutedEventArgs ^e );
+		void OnUnloaded( ::Platform::Object^ sender, ::Windows::UI::Xaml::RoutedEventArgs^ e );
+		void OnSizeChanged( ::Platform::Object^ sender, ::Windows::UI::Xaml::SizeChangedEventArgs^ e );
 
 	public:
-		property Platform::String^ PageSizeVisualStateGroupName
+		property ::Platform::String^ PageSizeVisualStateGroupName
 		{
-			Platform::String^ get();
-			void set( Platform::String^ value );
+			::Platform::String^ get();
+			void set( ::Platform::String^ value );
 		}
 
-		property Platform::String^ PageSizeCompactVisualStateName
+		property ::Platform::String^ PageSizeCompactVisualStateName
 		{
-			Platform::String^ get();
-			void set( Platform::String^ value );
+			::Platform::String^ get();
+			void set( ::Platform::String^ value );
 		}
-		property Platform::String^ PageSizeMiddleVisualStateName
+		property ::Platform::String^ PageSizeMiddleVisualStateName
 		{
-			Platform::String^ get();
-			void set( Platform::String^ value );
+			::Platform::String^ get();
+			void set( ::Platform::String^ value );
 		}
-		property Platform::String^ PageSizeFullVisualStateName
+		property ::Platform::String^ PageSizeFullVisualStateName
 		{
-			Platform::String^ get();
-			void set( Platform::String^ value );
+			::Platform::String^ get();
+			void set( ::Platform::String^ value );
 		}
 
 		property float32 WidthThresholdBetweenCompactAndMiddle
@@ -57,10 +60,10 @@ namespace Mntone { namespace Xamcc {
 		}
 
 	private:
-		Windows::Foundation::EventRegistrationToken unloadedEventToken_, sizeChangedEventToken_;
+		Windows::Foundation::EventRegistrationToken loadedEventToken_, unloadedEventToken_, sizeChangedEventToken_;
 
 		float32 WidthThresholdBetweenCompactAndMiddle_, WidthThresholdBetweenMiddleAndFull_;
-		Platform::String
+		::Platform::String
 			^ PageSizeVisualStateGroupName_,
 			^ PageSizeCompactVisualStateName_,
 			^ PageSizeMiddleVisualStateName_,

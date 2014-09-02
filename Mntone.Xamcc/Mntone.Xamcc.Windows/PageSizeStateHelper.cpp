@@ -42,8 +42,16 @@ PageSizeStateHelper::PageSizeStateHelper(
 	, WidthThresholdBetweenCompactAndMiddle_( widthThreasholdBetweenCompactAndMiddle )
 	, WidthThresholdBetweenMiddleAndFull_( widthThresholdBetweenMiddleAndFull )
 {
+	loadedEventToken_ = page->Loaded += ref new RoutedEventHandler( this, &PageSizeStateHelper::OnLoaded );
 	unloadedEventToken_ = page->Unloaded += ref new RoutedEventHandler( this, &PageSizeStateHelper::OnUnloaded );
 	sizeChangedEventToken_ = page->SizeChanged += ref new SizeChangedEventHandler( this, &PageSizeStateHelper::OnSizeChanged );
+}
+
+void PageSizeStateHelper::OnLoaded( Object^ sender, RoutedEventArgs^ e )
+{
+	auto page = safe_cast<Page^>( sender );
+	page->Loaded -= loadedEventToken_;
+	Update( page, Window::Current->Bounds.Width );
 }
 
 void PageSizeStateHelper::OnUnloaded( Object^ sender, RoutedEventArgs^ e )
@@ -57,6 +65,10 @@ void PageSizeStateHelper::OnSizeChanged( Object^ sender, SizeChangedEventArgs^ e
 {
 	auto page = safe_cast<Page^>( sender );
 	const auto width = e->NewSize.Width;
+}
+
+void PageSizeStateHelper::Update( Page^ page, float32 width )
+{
 	if( width <= WidthThresholdBetweenCompactAndMiddle_ )
 	{
 		VisualStateManager::GoToState( page, PageSizeCompactVisualStateName_, false );
