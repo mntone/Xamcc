@@ -65,6 +65,7 @@ void PageSizeStateHelper::OnSizeChanged( Object^ sender, SizeChangedEventArgs^ e
 {
 	auto page = safe_cast<Page^>( sender );
 	const auto width = e->NewSize.Width;
+	Update( page, width );
 }
 
 void PageSizeStateHelper::Update( Page^ page, float32 width )
