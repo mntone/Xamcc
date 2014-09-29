@@ -16,6 +16,10 @@ Object^ BooleanToVisibilityConverter::Convert( Object^ value, TypeName /*targetT
 	{
 		return flag->Value ^ IsInversed_ ? Visibility::Visible : Visibility::Collapsed;
 	}
+	if( DefaultValue_ != nullptr )
+	{
+		return DefaultValue_->Value ^ IsInversed_ ? Visibility::Visible : Visibility::Collapsed;
+	}
 	return nullptr;
 }
 
@@ -26,5 +30,5 @@ Object^ BooleanToVisibilityConverter::ConvertBack( Object^ value, TypeName /*tar
 	{
 		return ( visibility->Value == Visibility::Visible ) ^ IsInversed_ ? true : false;
 	}
-	return nullptr;
+	return DefaultValue_;
 }

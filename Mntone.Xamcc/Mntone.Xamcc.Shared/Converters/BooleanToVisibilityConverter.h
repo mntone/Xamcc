@@ -27,9 +27,15 @@ namespace Mntone { namespace Xamcc { namespace Converters {
 			bool get() { return IsInversed_; }
 			void set( bool value ) { IsInversed_ = value; }
 		}
+		property ::Platform::IBox<bool>^ DefaultValue
+		{
+			::Platform::IBox<bool>^ get() { return DefaultValue_; }
+			void set( ::Platform::IBox<bool>^ value ) { DefaultValue_ = value; }
+		}
 
 	private:
 		bool IsInversed_;
+		::Platform::IBox<bool>^ DefaultValue_;
 	};
 
 } } }
