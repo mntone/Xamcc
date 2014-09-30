@@ -26,6 +26,30 @@ This component and demoapp is “MIT license.”
 	  },
 	  dispatcher );
 
+### Binding window title (Windows only)
+	<Page
+	  xmlns:i="using:Microsoft.Xaml.Interactivity"
+	  xmlns:b="using:Mntone.Xamcc.Interactions">
+	  <i:Interaction.Behaviors>
+	    <b:WindowTitleBehavior IsEnabled="{Binding IsTitleEnabled}" Title="{Binding Title}" />
+	  </i:Interaction.Behaviors>
+	</Page>
+
+
+### Binding progress indicator (Windows Phone only)
+	<Page
+	  xmlns:i="using:Microsoft.Xaml.Interactivity"
+	  xmlns:b="using:Mntone.Xamcc.Interactions">
+	  <i:Interaction.Behaviors>
+	    <b:ProgressIndicatorBehavior
+	      IsEnabled="{Binding IsIndicatorEnabled}"
+	      IsIndeterminate="{Binding IsIndicatorIndeterminate}"
+	      Text="{Binding IndicatorMessage}"
+	      Minimum="{Binding IndicatorMinValue}"
+	      Maximum="{Binding IndicatorMaxValue}"
+	      Value="{Binding IndicatorCurrentValue}" />
+	  </i:Interaction.Behaviors>
+	</Page>
 
 # Related project
 - [C++/CX Helper](//github.com/mntone/CppCx-Helper)
