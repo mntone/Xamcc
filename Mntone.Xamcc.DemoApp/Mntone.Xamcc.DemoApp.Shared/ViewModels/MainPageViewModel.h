@@ -47,6 +47,39 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			void set( Platform::Collections::Deque<Platform::String^>^ value );
 		}
 
+#if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
+		property bool IsIndicatorEnabled
+		{
+			bool get();
+			void set( bool value );
+		}
+		property bool IsIndicatorIndeterminate
+		{
+			bool get();
+			void set( bool value );
+		}
+		property ::Platform::String^ IndicatorMessage
+		{
+			::Platform::String^ get();
+			void set( ::Platform::String^ value );
+		}
+		property float32 IndicatorMinValue
+		{
+			float32 get();
+			void set( float32 value );
+		}
+		property float32 IndicatorMaxValue
+		{
+			float32 get();
+			void set( float32 value );
+		}
+		property float32 IndicatorCurrentValue
+		{
+			float32 get();
+			void set( float32 value );
+		}
+#endif
+
 	private:
 		Mntone::Xamcc::DispatcherHelper^ dispatcherHelper_;
 		Mntone::Xamcc::DataProcessor processor_;
@@ -58,6 +91,16 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			^ ButtonAlwaysCanExecuteCommandProperty_,
 			^ ViewModelCollectionProperty_,
 			^ ViewModelCollection2Property_;
+
+#if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
+		static Windows::UI::Xaml::DependencyProperty
+			^ IsIndicatorEnabledProperty_,
+			^ IsIndicatorIndeterminateProperty_,
+			^ IndicatorMessageProperty_,
+			^ IndicatorMinValueProperty_,
+			^ IndicatorMaxValueProperty_,
+			^ IndicatorCurrentValueProperty_;
+#endif
 	};
 
 } } } }

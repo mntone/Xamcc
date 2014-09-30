@@ -7,8 +7,7 @@
 	mc:Ignorable="d"
 	x:Class="Mntone.Xamcc.DemoApp.Views.MainPage"
 	x:Name="pageRoot"
-	DataContext="{Binding MainPage, Source={StaticResource ViewModelLocator}}">
-
+	DataContext="{Binding MainPage, Source={StaticResource ViewModelLocator}}">	
 	<Grid
 		Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 		<Grid.ChildrenTransitions>
@@ -66,7 +65,8 @@
 
 				<TextBlock
 					Grid.Row="0"
-					Text="Button message:" />
+					Text="Button message:"
+					Style="{StaticResource BodyTextBlockStyle}" />
 				<TextBox
 					Grid.Row="0"
 					Grid.Column="1"
@@ -75,7 +75,8 @@
 				<TextBlock
 					Grid.Row="1"
 					Grid.ColumnSpan="2"
-					Text="Button is" />
+					Text="Button is"
+					Style="{StaticResource BodyTextBlockStyle}" />
 				<ToggleSwitch
 					Grid.Row="2"
 					Grid.ColumnSpan="2"
@@ -85,7 +86,8 @@
 					x:Name="visualStateName"
 					Grid.Row="3"
 					Foreground="White"
-					Text="Unknown" />
+					Text="Unknown"
+					Style="{StaticResource BodyTextBlockStyle}" />
 			</Grid>
 
 			<ListBox

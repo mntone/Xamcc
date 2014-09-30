@@ -4,12 +4,23 @@
 	xmlns:local="using:Mntone.Xamcc.DemoApp"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="using:Microsoft.Xaml.Interactivity"
+	xmlns:b="using:Mntone.Xamcc.Interactions"
 	mc:Ignorable="d"
 	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-	
 	x:Class="Mntone.Xamcc.DemoApp.Views.MainPage"
 	x:Name="pageRoot"
 	DataContext="{Binding MainPage, Source={StaticResource ViewModelLocator}}">
+	<i:Interaction.Behaviors>
+		<b:ProgressIndicatorBehavior
+			IsEnabled="{Binding IsIndicatorEnabled}"
+			IsIndeterminate="{Binding IsIndicatorIndeterminate}"
+			Text="{Binding IndicatorMessage}"
+			Minimum="{Binding IndicatorMinValue}"
+			Maximum="{Binding IndicatorMaxValue}"
+			Value="{Binding IndicatorCurrentValue}" />
+	</i:Interaction.Behaviors>
+
 	<Page.Transitions>
 		<TransitionCollection>
 			<NavigationThemeTransition>
@@ -46,68 +57,164 @@
 				Style="{ThemeResource HeaderTextBlockStyle}" />
 		</StackPanel>
 
-		<Grid
+		<ScrollViewer
 			Grid.Row="1"
-			Margin="24,0,0,20">
-			<Grid.RowDefinitions>
-				<RowDefinition />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition />
-				<RowDefinition />
-			</Grid.RowDefinitions>
-
-			<StackPanel
-				Orientation="Horizontal">
-				<Button
-					Content="{Binding ButtonMessage}"
-					Command="{Binding ButtonAlwaysCanExecuteCommand}"
-					IsEnabled="{Binding IsButtonEnabled}" />
-				<Button
-					Content="{Binding ButtonMessage}"
-					Command="{Binding ButtonCommand}" />
-			</StackPanel>
+			Margin="24,0,0,0">
 
 			<Grid
-				Grid.Row="1">
+				Margin="0,0,0,20">
 				<Grid.RowDefinitions>
 					<RowDefinition />
-					<RowDefinition />
-					<RowDefinition />
-					<RowDefinition />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="240" />
+					<RowDefinition
+						Height="240" />
 				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition
-						Width="140" />
-					<ColumnDefinition
-						Width="200" />
-				</Grid.ColumnDefinitions>
+
+				<StackPanel
+					Orientation="Horizontal">
+					<Button
+						Content="{Binding ButtonMessage}"
+						Command="{Binding ButtonAlwaysCanExecuteCommand}"
+						IsEnabled="{Binding IsButtonEnabled}" />
+					<Button
+						Content="{Binding ButtonMessage}"
+						Command="{Binding ButtonCommand}" />
+				</StackPanel>
+
+				<Grid
+					Grid.Row="1">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="140" />
+						<ColumnDefinition
+							Width="200" />
+					</Grid.ColumnDefinitions>
+
+					<TextBlock
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						Text="Button"
+						Style="{StaticResource SubheaderTextBlockStyle}" />
+
+					<ToggleSwitch
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						IsOn="{Binding IsButtonEnabled, Mode=TwoWay}" />
+
+					<TextBlock
+						Grid.Row="2"
+						Text="Message:"
+						Style="{StaticResource BodyTextBlockStyle}" />
+					<TextBox
+						Grid.Row="2"
+						Grid.Column="1"
+						Text="{Binding ButtonMessage, Mode=TwoWay}" />
+				</Grid>
+
+				<Grid
+					Grid.Row="2">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="140" />
+						<ColumnDefinition
+							Width="200" />
+					</Grid.ColumnDefinitions>
+
+					<TextBlock
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						Text="Indicator"
+						Style="{StaticResource SubheaderTextBlockStyle}" />
+					
+					<ToggleSwitch
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						IsOn="{Binding IsIndicatorEnabled, Mode=TwoWay}" />
+
+					<TextBlock
+						Grid.Row="2"
+						Text="Message:"
+						Style="{StaticResource BodyTextBlockStyle}" />
+					<TextBox
+						Grid.Row="2"
+						Grid.Column="1"
+						Text="{Binding IndicatorMessage, Mode=TwoWay}" />
+
+					<TextBlock
+						Grid.Row="3"
+						Grid.ColumnSpan="2"
+						Text="Indeterminate"
+						Style="{StaticResource BodyTextBlockStyle}" />
+					
+					<ToggleSwitch
+						Grid.Row="4"
+						Grid.ColumnSpan="2"
+						IsOn="{Binding IsIndicatorIndeterminate, Mode=TwoWay}" />
+
+					<TextBlock
+						Grid.Row="5"
+						Text="Min:"
+						Style="{StaticResource BodyTextBlockStyle}" />
+					<TextBox
+						Grid.Row="5"
+						Grid.Column="1"
+						Text="{Binding IndicatorMinValue, Mode=TwoWay}" />
+
+					<TextBlock
+						Grid.Row="6"
+						Text="Max:"
+						Style="{StaticResource BodyTextBlockStyle}" />
+					<TextBox
+						Grid.Row="6"
+						Grid.Column="1"
+						Text="{Binding IndicatorMaxValue, Mode=TwoWay}" />
+
+					<TextBlock
+						Grid.Row="7"
+						Text="Current:"
+						Style="{StaticResource BodyTextBlockStyle}" />
+					<TextBox
+						Grid.Row="7"
+						Grid.Column="1"
+						Text="{Binding IndicatorCurrentValue, Mode=TwoWay}" />
+				</Grid>
+
 
 				<TextBlock
-					Grid.Row="0"
-					Text="Button message:" />
-				<TextBox
-					Grid.Row="0"
-					Grid.Column="1"
-					Text="{Binding ButtonMessage, Mode=TwoWay}" />
+					Grid.Row="3"
+					Text="ViewModelHelper"
+					Style="{StaticResource SubheaderTextBlockStyle}" />
 
-				<TextBlock
-					Grid.Row="1"
-					Grid.ColumnSpan="2"
-					Text="Button is" />
-				<ToggleSwitch
-					Grid.Row="2"
-					Grid.ColumnSpan="2"
-					IsOn="{Binding IsButtonEnabled, Mode=TwoWay}" />
+				<ListBox
+					Grid.Row="4"
+					ItemsSource="{Binding ViewModelCollection}" />
+
+				<ListBox
+					Grid.Row="5"
+					ItemsSource="{Binding ViewModelCollection2}" />
 			</Grid>
-
-			<ListBox
-				Grid.Row="2"
-				ItemsSource="{Binding ViewModelCollection}" />
-
-			<ListBox
-				Grid.Row="3"
-				ItemsSource="{Binding ViewModelCollection2}" />
-		</Grid>
+		</ScrollViewer>
 	</Grid>
 </Page>

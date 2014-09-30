@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mntone.Xamcc", "Mntone.Xamcc", "{036A01EF-6B50-4437-B7C3-B3542844A8D2}"
 EndProject
@@ -19,11 +19,22 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mntone.Xamcc.DemoApp.Window
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mntone.Xamcc.DemoApp.WindowsPhone", "Mntone.Xamcc.DemoApp\Mntone.Xamcc.DemoApp.WindowsPhone\Mntone.Xamcc.DemoApp.WindowsPhone.vcxproj", "{184C6A6F-EA7D-488F-A790-BD618CCD2200}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mntone.Xamcc.Interactions", "Mntone.Xamcc.Interactions", "{CC64B55D-2793-45BB-8017-55F9CC9E257D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mntone.Xamcc.Interactions.Shared", "Mntone.Xamcc.Interactions\Mntone.Xamcc.Interactions.Shared\Mntone.Xamcc.Interactions.Shared.vcxitems", "{4A1F842C-81C5-4F8D-985E-C1A57E198182}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mntone.Xamcc.Interactions.Windows", "Mntone.Xamcc.Interactions\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.Windows.vcxproj", "{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mntone.Xamcc.Interactions.WindowsPhone", "Mntone.Xamcc.Interactions\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.WindowsPhone.vcxproj", "{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Mntone.Xamcc\Mntone.Xamcc.Shared\Mntone.Xamcc.Shared.vcxitems*{45fce75d-b0fc-4b28-b409-789569dcdc7b}*SharedItemsImports = 9
 		Mntone.Xamcc\Mntone.Xamcc.Shared\Mntone.Xamcc.Shared.vcxitems*{b53b2714-c3ef-4ece-ace7-dca73352b904}*SharedItemsImports = 4
+		Mntone.Xamcc.Interactions\Mntone.Xamcc.Interactions.Shared\Mntone.Xamcc.Interactions.Shared.vcxitems*{2f5fbad5-bee9-4ded-9e4f-2bf1e0d1c166}*SharedItemsImports = 4
+		Mntone.Xamcc.Interactions\Mntone.Xamcc.Interactions.Shared\Mntone.Xamcc.Interactions.Shared.vcxitems*{e49a720f-af52-4f3d-a05c-9e4ffe5e2bf5}*SharedItemsImports = 4
 		Mntone.Xamcc.DemoApp\Mntone.Xamcc.DemoApp.Shared\Mntone.Xamcc.DemoApp.Shared.vcxitems*{8ebd9848-0d36-41e9-a863-5d72b7a2278f}*SharedItemsImports = 4
+		Mntone.Xamcc.Interactions\Mntone.Xamcc.Interactions.Shared\Mntone.Xamcc.Interactions.Shared.vcxitems*{4a1f842c-81c5-4f8d-985e-c1a57e198182}*SharedItemsImports = 9
 		Mntone.Xamcc\Mntone.Xamcc.Shared\Mntone.Xamcc.Shared.vcxitems*{35b0173c-ebe2-476d-a9db-9916b23048fe}*SharedItemsImports = 4
 		Mntone.Xamcc.DemoApp\Mntone.Xamcc.DemoApp.Shared\Mntone.Xamcc.DemoApp.Shared.vcxitems*{92dc5a18-655a-417f-9dd2-bd85eddd9b8e}*SharedItemsImports = 9
 		Mntone.Xamcc.DemoApp\Mntone.Xamcc.DemoApp.Shared\Mntone.Xamcc.DemoApp.Shared.vcxitems*{184c6a6f-ea7d-488f-a790-bd618ccd2200}*SharedItemsImports = 4
@@ -91,6 +102,28 @@ Global
 		{184C6A6F-EA7D-488F-A790-BD618CCD2200}.Release|Win32.Build.0 = Release|Win32
 		{184C6A6F-EA7D-488F-A790-BD618CCD2200}.Release|Win32.Deploy.0 = Release|Win32
 		{184C6A6F-EA7D-488F-A790-BD618CCD2200}.Release|x64.ActiveCfg = Release|Win32
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Debug|ARM.Build.0 = Debug|ARM
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Debug|Win32.Build.0 = Debug|Win32
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Debug|x64.ActiveCfg = Debug|x64
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Debug|x64.Build.0 = Debug|x64
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Release|ARM.ActiveCfg = Release|ARM
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Release|ARM.Build.0 = Release|ARM
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Release|Win32.ActiveCfg = Release|Win32
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Release|Win32.Build.0 = Release|Win32
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Release|x64.ActiveCfg = Release|x64
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5}.Release|x64.Build.0 = Release|x64
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Debug|ARM.ActiveCfg = Debug|ARM
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Debug|ARM.Build.0 = Debug|ARM
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Debug|Win32.Build.0 = Debug|Win32
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Debug|x64.ActiveCfg = Debug|Win32
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Release|ARM.ActiveCfg = Release|ARM
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Release|ARM.Build.0 = Release|ARM
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Release|Win32.ActiveCfg = Release|Win32
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Release|Win32.Build.0 = Release|Win32
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,5 +135,8 @@ Global
 		{92DC5A18-655A-417F-9DD2-BD85EDDD9B8E} = {F87A73E1-59EF-49AD-B056-A174A32119AC}
 		{8EBD9848-0D36-41E9-A863-5D72B7A2278F} = {F87A73E1-59EF-49AD-B056-A174A32119AC}
 		{184C6A6F-EA7D-488F-A790-BD618CCD2200} = {F87A73E1-59EF-49AD-B056-A174A32119AC}
+		{4A1F842C-81C5-4F8D-985E-C1A57E198182} = {CC64B55D-2793-45BB-8017-55F9CC9E257D}
+		{E49A720F-AF52-4F3D-A05C-9E4FFE5E2BF5} = {CC64B55D-2793-45BB-8017-55F9CC9E257D}
+		{2F5FBAD5-BEE9-4DED-9E4F-2BF1E0D1C166} = {CC64B55D-2793-45BB-8017-55F9CC9E257D}
 	EndGlobalSection
 EndGlobal

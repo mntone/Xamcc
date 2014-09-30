@@ -51,3 +51,12 @@ IMPL_DP_GETSET( MainPageViewModel, RelayCommand, ButtonCommand, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, RelayCommand, ButtonAlwaysCanExecuteCommand, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, Collections::Vector<String^>, ViewModelCollection, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, Collections::Deque<String^>, ViewModelCollection2, nullptr )
+
+#if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
+IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsIndicatorEnabled, PropertyMetadata::Create( false ) )
+IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsIndicatorIndeterminate, PropertyMetadata::Create( false ) )
+IMPL_DP_GETSET( MainPageViewModel, String, IndicatorMessage, PropertyMetadata::Create( "LoadingÅc" ) )
+IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorMinValue, PropertyMetadata::Create( 0.f ) )
+IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorMaxValue, PropertyMetadata::Create( 1.f ) )
+IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorCurrentValue, PropertyMetadata::Create( 0.5f ) )
+#endif
