@@ -60,3 +60,6 @@ IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorMinValue, PropertyMetad
 IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorMaxValue, PropertyMetadata::Create( 1.f ) )
 IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorCurrentValue, PropertyMetadata::Create( 0.5f ) )
 #endif
+
+IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsTitleEnabled, PropertyMetadata::Create( true ) )
+IMPL_DP_GETSET( MainPageViewModel, String, Title, PropertyMetadata::Create( "Title Sample" ) )

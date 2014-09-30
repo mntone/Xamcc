@@ -4,10 +4,17 @@
 	xmlns:local="using:Mntone.Xamcc.DemoApp"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="using:Microsoft.Xaml.Interactivity"
+	xmlns:b="using:Mntone.Xamcc.Interactions"
 	mc:Ignorable="d"
 	x:Class="Mntone.Xamcc.DemoApp.Views.MainPage"
 	x:Name="pageRoot"
-	DataContext="{Binding MainPage, Source={StaticResource ViewModelLocator}}">	
+	DataContext="{Binding MainPage, Source={StaticResource ViewModelLocator}}">
+	<i:Interaction.Behaviors>
+		<b:WindowTitleBehavior
+			IsEnabled="{Binding IsTitleEnabled}"
+			Title="{Binding Title}" />
+	</i:Interaction.Behaviors>
 	<Grid
 		Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 		<Grid.ChildrenTransitions>
@@ -48,10 +55,8 @@
 			</StackPanel>
 
 			<Grid
-				Grid.Row="1"
-				Grid.ColumnSpan="3">
+				Grid.Row="1">
 				<Grid.RowDefinitions>
-					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
@@ -65,26 +70,66 @@
 
 				<TextBlock
 					Grid.Row="0"
-					Text="Button message:"
-					Style="{StaticResource BodyTextBlockStyle}" />
-				<TextBox
-					Grid.Row="0"
-					Grid.Column="1"
-					Text="{Binding ButtonMessage, Mode=TwoWay}" />
-
-				<TextBlock
-					Grid.Row="1"
 					Grid.ColumnSpan="2"
-					Text="Button is"
-					Style="{StaticResource BodyTextBlockStyle}" />
+					Text="Button"
+					Style="{StaticResource SubheaderTextBlockStyle}" />
+
 				<ToggleSwitch
-					Grid.Row="2"
+					Grid.Row="1"
 					Grid.ColumnSpan="2"
 					IsOn="{Binding IsButtonEnabled, Mode=TwoWay}" />
 
 				<TextBlock
+					Grid.Row="2"
+					Text="Message:"
+					Style="{StaticResource BodyTextBlockStyle}" />
+				<TextBox
+					Grid.Row="2"
+					Grid.Column="1"
+					Text="{Binding ButtonMessage, Mode=TwoWay}" />
+			</Grid>
+
+			<Grid
+				Grid.Row="1"
+				Grid.Column="1">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="140" />
+					<ColumnDefinition
+						Width="200" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					Text="Title"
+					Style="{StaticResource SubheaderTextBlockStyle}" />
+
+				<ToggleSwitch
+					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					IsOn="{Binding IsTitleEnabled, Mode=TwoWay}" />
+
+				<TextBlock
+					Grid.Row="2"
+					Text="Title:"
+					Style="{StaticResource BodyTextBlockStyle}" />
+				<TextBox
+					Grid.Row="2"
+					Grid.Column="1"
+					Text="{Binding Title, Mode=TwoWay}" />
+			</Grid>
+
+			<Grid
+				Grid.Row="1"
+				Grid.Column="2">
+				<TextBlock
 					x:Name="visualStateName"
-					Grid.Row="3"
 					Foreground="White"
 					Text="Unknown"
 					Style="{StaticResource BodyTextBlockStyle}" />

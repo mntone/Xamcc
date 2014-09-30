@@ -47,6 +47,17 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			void set( Platform::Collections::Deque<Platform::String^>^ value );
 		}
 
+		property bool IsTitleEnabled
+		{
+			bool get();
+			void set( bool value );
+		}
+		property ::Platform::String^ Title
+		{
+			::Platform::String^ get();
+			void set( ::Platform::String^ value );
+		}
+
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 		property bool IsIndicatorEnabled
 		{
@@ -90,7 +101,9 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			^ ButtonCommandProperty_,
 			^ ButtonAlwaysCanExecuteCommandProperty_,
 			^ ViewModelCollectionProperty_,
-			^ ViewModelCollection2Property_;
+			^ ViewModelCollection2Property_,
+			^ IsTitleEnabledProperty_,
+			^ TitleProperty_;
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 		static Windows::UI::Xaml::DependencyProperty

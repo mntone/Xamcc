@@ -19,6 +19,9 @@
 			Minimum="{Binding IndicatorMinValue}"
 			Maximum="{Binding IndicatorMaxValue}"
 			Value="{Binding IndicatorCurrentValue}" />
+		<b:WindowTitleBehavior
+			IsEnabled="{Binding IsTitleEnabled}"
+			Title="{Binding Title}" />
 	</i:Interaction.Behaviors>
 
 	<Page.Transitions>
@@ -61,22 +64,8 @@
 			Grid.Row="1"
 			Margin="24,0,0,0">
 
-			<Grid
+			<StackPanel
 				Margin="0,0,0,20">
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition
-						Height="Auto" />
-					<RowDefinition
-						Height="Auto" />
-					<RowDefinition
-						Height="Auto" />
-					<RowDefinition
-						Height="240" />
-					<RowDefinition
-						Height="240" />
-				</Grid.RowDefinitions>
-
 				<StackPanel
 					Orientation="Horizontal">
 					<Button
@@ -88,8 +77,7 @@
 						Command="{Binding ButtonCommand}" />
 				</StackPanel>
 
-				<Grid
-					Grid.Row="1">
+				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition />
 						<RowDefinition />
@@ -123,8 +111,42 @@
 						Text="{Binding ButtonMessage, Mode=TwoWay}" />
 				</Grid>
 
-				<Grid
-					Grid.Row="2">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="140" />
+						<ColumnDefinition
+							Width="200" />
+					</Grid.ColumnDefinitions>
+
+					<TextBlock
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						Text="Title"
+						Style="{StaticResource SubheaderTextBlockStyle}" />
+
+					<ToggleSwitch
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						IsOn="{Binding IsTitleEnabled, Mode=TwoWay}" />
+
+					<TextBlock
+						Grid.Row="2"
+						Text="Title:"
+						Style="{StaticResource BodyTextBlockStyle}" />
+					<TextBox
+						Grid.Row="2"
+						Grid.Column="1"
+						Text="{Binding Title, Mode=TwoWay}" />
+				</Grid>
+
+
+				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition />
 						<RowDefinition />
@@ -203,18 +225,15 @@
 
 
 				<TextBlock
-					Grid.Row="3"
 					Text="ViewModelHelper"
 					Style="{StaticResource SubheaderTextBlockStyle}" />
 
 				<ListBox
-					Grid.Row="4"
 					ItemsSource="{Binding ViewModelCollection}" />
 
 				<ListBox
-					Grid.Row="5"
 					ItemsSource="{Binding ViewModelCollection2}" />
-			</Grid>
+			</StackPanel>
 		</ScrollViewer>
 	</Grid>
 </Page>

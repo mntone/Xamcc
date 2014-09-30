@@ -2,6 +2,7 @@
 
 namespace Mntone { namespace Xamcc { namespace Interactions {
 
+	[Windows::Foundation::Metadata::WebHostHidden]
 	public ref class ProgressIndicatorBehavior sealed
 		: public ::Windows::UI::Xaml::DependencyObject
 		, public ::Microsoft::Xaml::Interactivity::IBehavior
