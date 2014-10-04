@@ -91,6 +91,12 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 		}
 #endif
 
+		property int32 ComparisonValue
+		{
+			int32 get();
+			void set( int32 value );
+		}
+
 	private:
 		Mntone::Xamcc::DispatcherHelper^ dispatcherHelper_;
 		Mntone::Xamcc::DataProcessor processor_;
@@ -103,7 +109,8 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			^ ViewModelCollectionProperty_,
 			^ ViewModelCollection2Property_,
 			^ IsTitleEnabledProperty_,
-			^ TitleProperty_;
+			^ TitleProperty_,
+			^ ComparisonValueProperty_;
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 		static Windows::UI::Xaml::DependencyProperty

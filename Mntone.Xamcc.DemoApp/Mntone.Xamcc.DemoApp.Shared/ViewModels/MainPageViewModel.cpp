@@ -63,3 +63,4 @@ IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorCurrentValue, PropertyM
 
 IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsTitleEnabled, PropertyMetadata::Create( true ) )
 IMPL_DP_GETSET( MainPageViewModel, String, Title, PropertyMetadata::Create( "Title Sample" ) )
+IMPL_DP_VALUE_GETSET( MainPageViewModel, int, ComparisonValue, nullptr )

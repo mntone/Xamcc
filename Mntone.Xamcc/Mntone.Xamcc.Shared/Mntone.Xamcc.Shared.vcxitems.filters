@@ -27,6 +27,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectCollectionCpp.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToNegativeBooleanConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToBooleanConveter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ComparisonType.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
@@ -38,6 +50,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Controls\VisualTreeHelper2.cpp">
       <Filter>Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\BooleanToNegativeBooleanConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToBooleanConveter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.cpp">
+      <Filter>Converters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

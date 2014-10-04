@@ -14,10 +14,14 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ComparisonType.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToNegativeBooleanConverter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectCollectionCpp.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectPreprocessor.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DispatcherHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToBooleanConveter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)NavigationHelper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.h" />
@@ -26,7 +30,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Controls\VisualTreeHelper2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\BooleanToNegativeBooleanConverter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToBooleanConveter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)NavigationHelper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

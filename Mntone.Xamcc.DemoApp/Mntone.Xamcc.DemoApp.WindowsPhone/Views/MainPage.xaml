@@ -6,6 +6,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:i="using:Microsoft.Xaml.Interactivity"
 	xmlns:b="using:Mntone.Xamcc.Interactions"
+	xmlns:c="using:Mntone.Xamcc.Converters"
 	mc:Ignorable="d"
 	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 	x:Class="Mntone.Xamcc.DemoApp.Views.MainPage"
@@ -23,6 +24,13 @@
 			IsEnabled="{Binding IsTitleEnabled}"
 			Title="{Binding Title}" />
 	</i:Interaction.Behaviors>
+
+	<Page.Resources>
+		<c:Int32ComparisonToVisibilityConveter
+			x:Key="equalToParameterToVisibilityConverter"
+			DefaultValue="0"
+			ComparisonType="EqualTo" />
+	</Page.Resources>
 
 	<Page.Transitions>
 		<TransitionCollection>
@@ -169,7 +177,7 @@
 						Grid.ColumnSpan="2"
 						Text="Indicator"
 						Style="{StaticResource SubheaderTextBlockStyle}" />
-					
+
 					<ToggleSwitch
 						Grid.Row="1"
 						Grid.ColumnSpan="2"
@@ -189,7 +197,7 @@
 						Grid.ColumnSpan="2"
 						Text="Indeterminate"
 						Style="{StaticResource BodyTextBlockStyle}" />
-					
+
 					<ToggleSwitch
 						Grid.Row="4"
 						Grid.ColumnSpan="2"
@@ -223,6 +231,43 @@
 						Text="{Binding IndicatorCurrentValue, Mode=TwoWay}" />
 				</Grid>
 
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="80" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="140" />
+						<ColumnDefinition
+							Width="200" />
+					</Grid.ColumnDefinitions>
+
+					<TextBlock
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						Text="Int32ComparisonToVisibilityConverter"
+						Style="{StaticResource SubheaderTextBlockStyle}" />
+
+					<TextBlock
+						Grid.Row="1"
+						Text="Value:"
+						Style="{StaticResource BodyTextBlockStyle}" />
+					<TextBox
+						Grid.Row="1"
+						Grid.Column="1"
+						Text="{Binding ComparisonValue, Mode=TwoWay}" />
+
+					<Border
+						Grid.Row="2"
+						Grid.ColumnSpan="2"
+						Background="Aquamarine"
+						Visibility="{Binding ComparisonValue, Converter={StaticResource equalToParameterToVisibilityConverter}, ConverterParameter=0, Mode=OneWay}" />
+				</Grid>
 
 				<TextBlock
 					Text="ViewModelHelper"

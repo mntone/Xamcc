@@ -6,6 +6,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:i="using:Microsoft.Xaml.Interactivity"
 	xmlns:b="using:Mntone.Xamcc.Interactions"
+	xmlns:c="using:Mntone.Xamcc.Converters"
 	mc:Ignorable="d"
 	x:Class="Mntone.Xamcc.DemoApp.Views.MainPage"
 	x:Name="pageRoot"
@@ -15,6 +16,14 @@
 			IsEnabled="{Binding IsTitleEnabled}"
 			Title="{Binding Title}" />
 	</i:Interaction.Behaviors>
+
+	<Page.Resources>
+		<c:Int32ComparisonToVisibilityConveter
+			x:Key="equalToParameterToVisibilityConverter"
+			DefaultValue="0"
+			ComparisonType="EqualTo" />
+	</Page.Resources>
+
 	<Grid
 		Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 		<Grid.ChildrenTransitions>
@@ -128,11 +137,40 @@
 			<Grid
 				Grid.Row="1"
 				Grid.Column="2">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="140" />
+					<ColumnDefinition
+						Width="200" />
+				</Grid.ColumnDefinitions>
+
 				<TextBlock
-					x:Name="visualStateName"
-					Foreground="White"
-					Text="Unknown"
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					Text="Int32ComparisonToVisibilityConverter"
+					Style="{StaticResource SubheaderTextBlockStyle}" />
+
+				<TextBlock
+					Grid.Row="1"
+					Text="Value:"
 					Style="{StaticResource BodyTextBlockStyle}" />
+				<TextBox
+					Grid.Row="1"
+					Grid.Column="1"
+					Text="{Binding ComparisonValue, Mode=TwoWay}" />
+
+				<Border
+					Grid.Row="2"
+					Grid.ColumnSpan="2"
+					Background="Aquamarine"
+					Visibility="{Binding ComparisonValue, Converter={StaticResource equalToParameterToVisibilityConverter}, ConverterParameter=0, Mode=OneWay}" />
 			</Grid>
 
 			<ListBox
@@ -161,15 +199,24 @@
 				AutomationProperties.Name="Back"
 				AutomationProperties.AutomationId="BackButton"
 				AutomationProperties.ItemType="Navigation Button" />
-			<TextBlock
-				x:Name="pageTitle"
-				Text="Xamcc DemoApp"
-				Style="{StaticResource HeaderTextBlockStyle}"
+			<StackPanel
 				Grid.Column="1"
-				IsHitTestVisible="false"
-				TextWrapping="NoWrap"
-				VerticalAlignment="Bottom"
-				Margin="0,0,30,40" />
+				Orientation="Horizontal">
+				<TextBlock
+					x:Name="pageTitle"
+					Text="Xamcc DemoApp"
+					Style="{StaticResource HeaderTextBlockStyle}"
+					IsHitTestVisible="false"
+					TextWrapping="NoWrap"
+					VerticalAlignment="Bottom"
+					Margin="0,0,30,40" />
+				<TextBlock
+					x:Name="visualStateName"
+					Grid.ColumnSpan="2"
+					Foreground="White"
+					Text="Unknown"
+					Style="{StaticResource BodyTextBlockStyle}" />
+			</StackPanel>
 		</Grid>
 
 		<VisualStateManager.VisualStateGroups>
