@@ -9,7 +9,7 @@ namespace Mntone { namespace Xamcc { namespace DemoApp {
 		App();
 
 	private:
-		~App();
+		//~App();
 
 	protected:
 		virtual void OnLaunched( Windows::ApplicationModel::Activation::LaunchActivatedEventArgs^ e ) override sealed;
@@ -23,7 +23,7 @@ namespace Mntone { namespace Xamcc { namespace DemoApp {
 #endif
 
 	private:
-		Windows::Foundation::EventRegistrationToken suspendingEventToken_;
+		//Windows::Foundation::EventRegistrationToken suspendingEventToken_;
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 		Windows::Foundation::EventRegistrationToken navigatedEventToken_;

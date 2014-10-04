@@ -26,12 +26,7 @@ App::App()
 {
 	InitializeComponent();
 
-	suspendingEventToken_ = Suspending += ref new SuspendingEventHandler( this, &App::OnSuspending );
-}
-
-App::~App()
-{
-	Suspending -= suspendingEventToken_;
+	/*suspendingEventToken_ =*/ Suspending += ref new SuspendingEventHandler( this, &App::OnSuspending );
 }
 
 void App::OnLaunched( LaunchActivatedEventArgs^ e )
