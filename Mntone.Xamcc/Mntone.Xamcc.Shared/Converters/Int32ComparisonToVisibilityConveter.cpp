@@ -21,9 +21,11 @@ Object^ Int32ComparisonToVisibilityConveter::Convert( Object^ value, TypeName /*
 	return comparisonFunction_( intValue ? intValue->Value : DefaultValue_, stringParameter ? _wtoi( stringParameter->Data() ) : 0 ) ? Visibility::Visible : Visibility::Collapsed;
 }
 
-Object^ Int32ComparisonToVisibilityConveter::ConvertBack( Object^ /*value*/, TypeName /*targetType*/, Object^ /*parameter*/, String^ /*language*/ )
+Object^ Int32ComparisonToVisibilityConveter::ConvertBack( Object^ value, TypeName /*targetType*/, Object^ parameter, String^ /*language*/ )
 {
-	throw ref new NotImplementedException();
+	auto visibilityValue = dynamic_cast<IBox<Visibility>^>( value );
+	auto stringParameter = dynamic_cast<String^>( parameter );
+	return visibilityValue && visibilityValue->Value == Visibility::Visible ? ( stringParameter ? _wtoi( stringParameter->Data() ) : 0 ) : -1;
 }
 
 void Int32ComparisonToVisibilityConveter::ComparisonType::set( MXC::ComparisonType value )

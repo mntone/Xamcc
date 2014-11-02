@@ -20,9 +20,11 @@ Object^ Int32ComparisonToBooleanConveter::Convert( Object^ value, TypeName /*tar
 	return comparisonFunction_( intValue ? intValue->Value : DefaultValue_, stringParameter ? _wtoi( stringParameter->Data() ) : 0 );
 }
 
-Object^ Int32ComparisonToBooleanConveter::ConvertBack( Object^ /*value*/, TypeName /*targetType*/, Object^ /*parameter*/, String^ /*language*/ )
+Object^ Int32ComparisonToBooleanConveter::ConvertBack( Object^ value, TypeName /*targetType*/, Object^ parameter, String^ /*language*/ )
 {
-	throw ref new NotImplementedException();
+	auto boolValue = dynamic_cast<IBox<bool>^>( value );
+	auto stringParameter = dynamic_cast<String^>( parameter );
+	return boolValue && boolValue->Value ? ( stringParameter ? _wtoi( stringParameter->Data() ) : 0 ) : -1;
 }
 
 void Int32ComparisonToBooleanConveter::ComparisonType::set( MXC::ComparisonType value )
