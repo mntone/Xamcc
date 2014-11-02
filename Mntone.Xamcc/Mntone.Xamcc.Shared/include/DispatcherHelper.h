@@ -4,7 +4,7 @@
 namespace Mntone { namespace Xamcc { 
 
 	[::Windows::Foundation::Metadata::WebHostHidden]
-	public ref class DispatcherHelper sealed
+	ref class DispatcherHelper sealed
 	{
 	internal:
 		DispatcherHelper()

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Mntone { namespace Xamcc {
+XAMCC_YOUR_ROOT_NAMESPACE_BEGIN namespace Xamcc {
 
 	namespace WUXI = ::Windows::UI::Xaml::Interop;
 
@@ -49,4 +49,4 @@ namespace Mntone { namespace Xamcc {
 		event ::Windows::UI::Xaml::Interop::BindableVectorChangedEventHandler^ wuxiEvent_;
 	};
 
-} }
+} XAMCC_YOUR_ROOT_NAMESPACE_END
