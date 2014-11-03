@@ -41,18 +41,32 @@ namespace Mntone { namespace Xamcc {
 		void OnPointerPressed( Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ e );
 #endif
 
-	private:
-		property Mntone::Xamcc::Commands::RelayCommand^ GoHomeCommand
+	public:
+		property ::Windows::UI::Xaml::Input::ICommand^ GoHomeCommand
+		{
+			::Windows::UI::Xaml::Input::ICommand^ get();
+		}
+		property ::Windows::UI::Xaml::Input::ICommand^ GoBackCommand
+		{
+			::Windows::UI::Xaml::Input::ICommand^ get();
+		}
+		property ::Windows::UI::Xaml::Input::ICommand^ GoForwardCommand
+		{
+			::Windows::UI::Xaml::Input::ICommand^ get();
+		}
+
+	internal:
+		property Mntone::Xamcc::Commands::RelayCommand^ GoHomeCommandInternal
 		{
 			Mntone::Xamcc::Commands::RelayCommand^ get();
 			void set( Mntone::Xamcc::Commands::RelayCommand^ value );
 		}
-		property Mntone::Xamcc::Commands::RelayCommand^ GoBackCommand
+		property Mntone::Xamcc::Commands::RelayCommand^ GoBackCommandInternal
 		{
 			Mntone::Xamcc::Commands::RelayCommand^ get();
 			void set( Mntone::Xamcc::Commands::RelayCommand^ value );
 		}
-		property Mntone::Xamcc::Commands::RelayCommand^ GoForwardCommand
+		property Mntone::Xamcc::Commands::RelayCommand^ GoForwardCommandInternal
 		{
 			Mntone::Xamcc::Commands::RelayCommand^ get();
 			void set( Mntone::Xamcc::Commands::RelayCommand^ value );

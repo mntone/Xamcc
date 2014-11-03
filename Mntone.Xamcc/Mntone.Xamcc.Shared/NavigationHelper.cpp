@@ -28,9 +28,9 @@ NavigationHelper::NavigationHelper( Page^ page )
 	sizeChangedEventToken_ = page->SizeChanged += ref new SizeChangedEventHandler( this, &NavigationHelper::OnSizeChanged );
 #endif
 
-	GoHomeCommand = ref new Commands::RelayCommand( [this]( Object^ ) { GoHome(); }, [this]( Object^ ) { return CanGoHome(); } );
-	GoBackCommand = ref new Commands::RelayCommand( [this]( Object^ ) { GoBack(); }, [this]( Object^ ) { return CanGoBack(); } );
-	GoForwardCommand = ref new Commands::RelayCommand( [this]( Object^ ) { GoForward(); }, [this]( Object^ ) { return CanGoForward(); } );
+	GoHomeCommandInternal = ref new Commands::RelayCommand( [this]( Object^ ) { GoHome(); }, [this]( Object^ ) { return CanGoHome(); } );
+	GoBackCommandInternal = ref new Commands::RelayCommand( [this]( Object^ ) { GoBack(); }, [this]( Object^ ) { return CanGoBack(); } );
+	GoForwardCommandInternal = ref new Commands::RelayCommand( [this]( Object^ ) { GoForward(); }, [this]( Object^ ) { return CanGoForward(); } );
 }
 
 void NavigationHelper::Release( Page^ page )
@@ -264,7 +264,20 @@ bool NavigationHelper::GoForward()
 
 #pragma endregion
 
+Input::ICommand^ NavigationHelper::GoHomeCommand::get() { return safe_cast<Input::ICommand^>( GetValue( GoHomeCommandProperty_ ) ); }
+Commands::RelayCommand^ NavigationHelper::GoHomeCommandInternal::get() { return safe_cast<Commands::RelayCommand^>( GetValue( GoHomeCommandProperty_ ) ); }
+void NavigationHelper::GoHomeCommandInternal::set( Commands::RelayCommand^ value) { SetValue( GoHomeCommandProperty_, value ); }
+DependencyProperty^ NavigationHelper::GoHomeCommandProperty_
+	= DependencyProperty::Register( "GoHomeCommand", Commands::RelayCommand::typeid, NavigationHelper::typeid, nullptr );
 
-IMPL_DP_GETSET( NavigationHelper, Commands::RelayCommand, GoHomeCommand, nullptr )
-IMPL_DP_GETSET( NavigationHelper, Commands::RelayCommand, GoBackCommand, nullptr )
-IMPL_DP_GETSET( NavigationHelper, Commands::RelayCommand, GoForwardCommand, nullptr )
+Input::ICommand^ NavigationHelper::GoBackCommand::get() { return safe_cast<Input::ICommand^>( GetValue( GoBackCommandProperty_ ) ); }
+Commands::RelayCommand^ NavigationHelper::GoBackCommandInternal::get() { return safe_cast<Commands::RelayCommand^>( GetValue( GoBackCommandProperty_ ) ); }
+void NavigationHelper::GoBackCommandInternal::set( Commands::RelayCommand^ value ) { SetValue( GoBackCommandProperty_, value ); }
+DependencyProperty^ NavigationHelper::GoBackCommandProperty_
+	= DependencyProperty::Register( "GoBackCommand", Commands::RelayCommand::typeid, NavigationHelper::typeid, nullptr );
+
+Input::ICommand^ NavigationHelper::GoForwardCommand::get() { return safe_cast<Input::ICommand^>( GetValue( GoForwardCommandProperty_ ) ); }
+Commands::RelayCommand^ NavigationHelper::GoForwardCommandInternal::get() { return safe_cast<Commands::RelayCommand^>( GetValue( GoForwardCommandProperty_ ) ); }
+void NavigationHelper::GoForwardCommandInternal::set( Commands::RelayCommand^ value ) { SetValue( GoForwardCommandProperty_, value ); }
+DependencyProperty^ NavigationHelper::GoForwardCommandProperty_
+	= DependencyProperty::Register( "GoForwardCommand", Commands::RelayCommand::typeid, NavigationHelper::typeid, nullptr );
