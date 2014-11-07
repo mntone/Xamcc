@@ -21,7 +21,7 @@ void WindowTitleBehavior::Attach( DependencyObject^ associatedObject )
 	}
 
 	AssociatedObject_ = page;
-	unloadedEventToken_ = AssociatedObject_->Unloaded += ref new RoutedEventHandler( this, &WindowTitleBehavior::OnUnloaded );
+	unloadedEventToken_ = page->Unloaded += ref new RoutedEventHandler( this, &WindowTitleBehavior::OnUnloaded );
 
 	Update();
 }
