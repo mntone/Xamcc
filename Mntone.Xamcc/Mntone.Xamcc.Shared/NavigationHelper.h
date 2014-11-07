@@ -10,7 +10,7 @@ namespace Mntone { namespace Xamcc {
 	{
 	public:
 		[Windows::Foundation::Metadata::Overload( "CreateInstance" )]
-		NavigationHelper( Windows::UI::Xaml::Controls::Page^ page );
+		NavigationHelper( ::Windows::UI::Xaml::Controls::Page^ page );
 
 		bool CanGoHome();
 		bool GoHome();
@@ -22,16 +22,16 @@ namespace Mntone { namespace Xamcc {
 		bool GoForward();
 
 	private:
-		void Release( Windows::UI::Xaml::Controls::Page^ page );
+		void Release( ::Windows::UI::Xaml::Controls::Page^ page );
 
 #if WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP
 		void AddHookToWindow();
 		void RemoveHookToWindow();
 #endif
 
-		void OnLoaded( Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e );
-		void OnUnloaded( Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e );
-		void OnSizeChanged( Platform::Object ^sender, Windows::UI::Xaml::SizeChangedEventArgs^ e );
+		void OnLoaded( ::Platform::Object^ sender, ::Windows::UI::Xaml::RoutedEventArgs^ e );
+		void OnUnloaded( ::Platform::Object^ sender, ::Windows::UI::Xaml::RoutedEventArgs^ e );
+		void OnSizeChanged( ::Platform::Object ^sender, ::Windows::UI::Xaml::SizeChangedEventArgs^ e );
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 
