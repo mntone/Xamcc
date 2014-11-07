@@ -5,6 +5,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:i="using:Microsoft.Xaml.Interactivity"
+	xmlns:e="using:Microsoft.Xaml.Interactions.Core"
 	xmlns:b="using:Mntone.Xamcc.Interactions"
 	xmlns:c="using:Mntone.Xamcc.Converters"
 	mc:Ignorable="d"
@@ -15,6 +16,12 @@
 		<b:WindowTitleBehavior
 			IsEnabled="{Binding IsTitleEnabled}"
 			Title="{Binding Title}" />
+		<b:KeyTriggerBehavior
+			FiredOn="KeyDown"
+			Key="F5">
+			<e:InvokeCommandAction
+				Command="{Binding F5Command}" />
+		</b:KeyTriggerBehavior>
 	</i:Interaction.Behaviors>
 
 	<Page.Resources>
@@ -43,6 +50,10 @@
 			Margin="120,0,0,80">
 			<Grid.RowDefinitions>
 				<RowDefinition />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="15" />
 				<RowDefinition
 					Height="Auto" />
 			</Grid.RowDefinitions>
@@ -96,6 +107,32 @@
 					Grid.Row="2"
 					Grid.Column="1"
 					Text="{Binding ButtonMessage, Mode=TwoWay}" />
+			</Grid>
+
+			<Grid
+				Grid.Row="3">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="140" />
+					<ColumnDefinition
+						Width="200" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					Text="KeyTriggerBehavior"
+					Style="{StaticResource SubheaderTextBlockStyle}" />
+
+				<ToggleSwitch
+					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					IsOn="{Binding IsF5KeyEnabled, Mode=TwoWay}" />
 			</Grid>
 
 			<Grid

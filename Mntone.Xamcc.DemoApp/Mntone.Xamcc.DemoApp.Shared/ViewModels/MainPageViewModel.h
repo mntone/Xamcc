@@ -89,6 +89,17 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			float32 get();
 			void set( float32 value );
 		}
+#else
+		property bool IsF5KeyEnabled
+		{
+			bool get();
+			void set( bool value );
+		}
+		property Mntone::Xamcc::Commands::RelayCommand^ F5Command
+		{
+			Mntone::Xamcc::Commands::RelayCommand^ get();
+			void set( Mntone::Xamcc::Commands::RelayCommand^ value );
+		}
 #endif
 
 		property int32 ComparisonValue
@@ -120,6 +131,10 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			^ IndicatorMinValueProperty_,
 			^ IndicatorMaxValueProperty_,
 			^ IndicatorCurrentValueProperty_;
+#else
+		static Windows::UI::Xaml::DependencyProperty
+			^ IsF5KeyEnabledProperty_,
+			^ F5CommandProperty_;
 #endif
 	};
 

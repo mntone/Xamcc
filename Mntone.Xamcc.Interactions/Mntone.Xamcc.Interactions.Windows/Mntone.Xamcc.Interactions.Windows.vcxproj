@@ -29,6 +29,13 @@
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKNative, Version=12.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KeyTriggerBehavior.h" />
+    <ClInclude Include="KeyTriggerFiredOn.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="KeyTriggerBehavior.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{e49a720f-af52-4f3d-a05c-9e4ffe5e2bf5}</ProjectGuid>
     <RootNamespace>Mntone.Xamcc.Interactions</RootNamespace>

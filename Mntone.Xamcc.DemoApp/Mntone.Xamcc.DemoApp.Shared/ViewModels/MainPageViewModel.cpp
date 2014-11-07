@@ -17,6 +17,12 @@ MainPageViewModel::MainPageViewModel( CoreDispatcher^ dispatcher )
 	ButtonAlwaysCanExecuteCommand = ref new RelayCommand(
 		[]( Object^ ) { ( ref new MessageDialog( "Clicked!" ) )->ShowAsync(); } );
 
+#if WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP
+	F5Command = ref new RelayCommand(
+		[]( Object^ ) { ( ref new MessageDialog( "F5 Pressed!" ) )->ShowAsync(); },
+		[this]( Object^ ) { return IsF5KeyEnabled; } );
+#endif
+
 	ViewModelCollection = ViewModelHelper::CreateDispatcherVector<Windows::Foundation::DateTime, String^>(
 		processor_.GetVector(),
 		[]( Windows::Foundation::DateTime from )
@@ -59,6 +65,9 @@ IMPL_DP_GETSET( MainPageViewModel, String, IndicatorMessage, PropertyMetadata::C
 IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorMinValue, PropertyMetadata::Create( 0.f ) )
 IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorMaxValue, PropertyMetadata::Create( 1.f ) )
 IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorCurrentValue, PropertyMetadata::Create( 0.5f ) )
+#else
+IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsF5KeyEnabled, PropertyMetadata::Create( true ) )
+IMPL_DP_GETSET( MainPageViewModel, RelayCommand, F5Command, nullptr )
 #endif
 
 IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsTitleEnabled, PropertyMetadata::Create( true ) )
