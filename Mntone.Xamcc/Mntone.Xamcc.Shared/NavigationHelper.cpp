@@ -137,11 +137,8 @@ void NavigationHelper::OnAcceleratorKeyActivated( CoreDispatcher^ /*sender*/, Ac
 		auto menuKey = ( coreWindow->GetKeyState( VirtualKey::Menu ) & downState ) == downState;
 		auto controlKey = ( coreWindow->GetKeyState( VirtualKey::Control ) & downState ) == downState;
 		auto shiftKey = ( coreWindow->GetKeyState( VirtualKey::Shift ) & downState ) == downState;
-		auto leftWindowsKey = ( coreWindow->GetKeyState( VirtualKey::LeftWindows ) & downState ) == downState;
-		auto rightWindowsKey = ( coreWindow->GetKeyState( VirtualKey::RightWindows ) & downState ) == downState;
-		auto windowsKey = leftWindowsKey || rightWindowsKey;
-		auto noModifiers = !menuKey && !controlKey && !shiftKey && !windowsKey;
-		auto onlyAlt = menuKey && !controlKey && !shiftKey && !windowsKey;
+		auto noModifiers = !menuKey && !controlKey && !shiftKey;
+		auto onlyAlt = menuKey && !controlKey && !shiftKey;
 
 		if( virtualKey == VirtualKey::GoBack && noModifiers || virtualKey == VirtualKey::Left && onlyAlt )
 		{
