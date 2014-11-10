@@ -75,7 +75,7 @@ namespace Mntone { namespace Xamcc { namespace Interactions {
 
 	private:
 		bool keyEventTriggerRegistered_;
-		::Windows::UI::Xaml::Controls::Page^ AssociatedObject_;
+		::Platform::WeakReference AssociatedObject_;
 		::Windows::Foundation::EventRegistrationToken loadedEventToken_, unloadedEventToken_, sizeChangedEventToken_, acceleratorKeyEventToken_;
 
 		static ::Windows::UI::Xaml::DependencyProperty

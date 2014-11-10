@@ -33,9 +33,10 @@ void WindowTitleBehavior::Detach()
 
 void WindowTitleBehavior::Release()
 {
-	if( AssociatedObject_ != nullptr )
+	auto page = AssociatedObject_.Resolve<Page>();
+	if( page )
 	{
-		AssociatedObject_->Unloaded -= unloadedEventToken_;
+		page->Unloaded -= unloadedEventToken_;
 		AssociatedObject_ = nullptr;
 
 		if( IsEnabled )
@@ -90,7 +91,11 @@ void WindowTitleBehavior::OnTitleChanged( DependencyObject^ d, DependencyPropert
 	}
 }
 
-IMPL_PROP_GET( WindowTitleBehavior, DependencyObject, AssociatedObject )
+
+DependencyObject^ WindowTitleBehavior::AssociatedObject::get()
+{
+	return AssociatedObject_.Resolve<Page>();
+}
 
 IMPL_DP_VALUE_GETSET( WindowTitleBehavior, bool, IsEnabled,
 	PropertyMetadata::Create( false, ref new PropertyChangedCallback( &WindowTitleBehavior::OnIsEnabledChanged ) ) )

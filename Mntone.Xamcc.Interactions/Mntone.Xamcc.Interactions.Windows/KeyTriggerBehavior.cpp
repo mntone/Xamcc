@@ -41,12 +41,16 @@ void KeyTriggerBehavior::Detach()
 
 void KeyTriggerBehavior::Invoke()
 {
-	for( DependencyObject^ actionDependencyObject : Actions )
+	auto page = AssociatedObject_.Resolve<Page>();
+	if( page )
 	{
-		auto action = dynamic_cast<IAction^>( actionDependencyObject );
-		if( action )
+		for( DependencyObject^ actionDependencyObject : Actions )
 		{
-			action->Execute( AssociatedObject_, nullptr );
+			auto action = dynamic_cast<IAction^>( actionDependencyObject );
+			if( action )
+			{
+				action->Execute( page, nullptr );
+			}
 		}
 	}
 }
@@ -152,7 +156,11 @@ void KeyTriggerBehavior::OnAcceleratorKeyActivated( CoreDispatcher^ sender, Acce
 	}
 }
 
-IMPL_PROP_GET( KeyTriggerBehavior, DependencyObject, AssociatedObject )
+
+DependencyObject^ KeyTriggerBehavior::AssociatedObject::get()
+{
+	return AssociatedObject_.Resolve<Page>();
+}
 
 IMPL_DP_GETSET( KeyTriggerBehavior, ::Microsoft::Xaml::Interactivity::ActionCollection, Actions, nullptr )
 IMPL_DP_VALUE_GETSET( KeyTriggerBehavior, KeyTriggerFiredOn, FiredOn, PropertyMetadata::Create( KeyTriggerFiredOn::KeyDown ) )

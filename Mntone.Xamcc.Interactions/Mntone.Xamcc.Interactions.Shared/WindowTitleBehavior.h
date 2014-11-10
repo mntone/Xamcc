@@ -53,7 +53,7 @@ namespace Mntone { namespace Xamcc { namespace Interactions {
 		}
 
 	private:
-		::Windows::UI::Xaml::Controls::Page^ AssociatedObject_;
+		::Platform::WeakReference AssociatedObject_;
 		::Windows::Foundation::EventRegistrationToken unloadedEventToken_;
 
 		static ::Windows::UI::Xaml::DependencyProperty

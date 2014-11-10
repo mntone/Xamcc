@@ -22,7 +22,7 @@ void ProgressIndicatorBehavior::Attach( DependencyObject^ associatedObject )
 	}
 
 	AssociatedObject_ = page;
-	unloadedEventToken_ = AssociatedObject_->Unloaded += ref new RoutedEventHandler( this, &ProgressIndicatorBehavior::OnUnloaded );
+	unloadedEventToken_ = page->Unloaded += ref new RoutedEventHandler( this, &ProgressIndicatorBehavior::OnUnloaded );
 
 	if( IsEnabled )
 	{
@@ -44,9 +44,10 @@ void ProgressIndicatorBehavior::Detach()
 
 void ProgressIndicatorBehavior::Release()
 {
-	if( AssociatedObject_ != nullptr )
+	auto page = AssociatedObject_.Resolve<Page>();
+	if( page )
 	{
-		AssociatedObject_->Unloaded -= unloadedEventToken_;
+		page->Unloaded -= unloadedEventToken_;
 		AssociatedObject_ = nullptr;
 
 		if( IsEnabled )
@@ -171,7 +172,11 @@ void ProgressIndicatorBehavior::OnValueChanged( DependencyObject^ d, DependencyP
 	}
 }
 
-IMPL_PROP_GET( ProgressIndicatorBehavior, DependencyObject, AssociatedObject )
+
+DependencyObject^ ProgressIndicatorBehavior::AssociatedObject::get()
+{
+	return AssociatedObject_.Resolve<Page>();
+}
 
 IMPL_DP_VALUE_GETSET( ProgressIndicatorBehavior, bool, IsEnabled,
 	PropertyMetadata::Create( false, ref new PropertyChangedCallback( &ProgressIndicatorBehavior::OnIsEnabledChanged ) ) )
