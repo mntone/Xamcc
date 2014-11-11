@@ -38,6 +38,10 @@ void ProgressIndicatorBehavior::Attach( DependencyObject^ associatedObject )
 
 void ProgressIndicatorBehavior::Detach()
 {
+	if( IsEnabled )
+	{
+		IsEnabled = false;
+	}
 	AssociatedObject_ = nullptr;
 }
 

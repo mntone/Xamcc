@@ -27,6 +27,10 @@ void WindowTitleBehavior::Attach( DependencyObject^ associatedObject )
 
 void WindowTitleBehavior::Detach()
 {
+	if( IsEnabled )
+	{
+		IsEnabled = false;
+	}
 	AssociatedObject_ = nullptr;
 }
 
