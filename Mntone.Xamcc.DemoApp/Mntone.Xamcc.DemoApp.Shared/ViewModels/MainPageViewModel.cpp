@@ -11,16 +11,25 @@ using namespace Mntone::Xamcc::DemoApp::ViewModels;
 MainPageViewModel::MainPageViewModel( CoreDispatcher^ dispatcher )
 	: dispatcherHelper_( ref new DispatcherHelper( dispatcher ) )
 {
+	auto wr = WeakReference( this );
 	ButtonCommand = ref new RelayCommand(
 		[]( Object^ ) { ( ref new MessageDialog( "Clicked!" ) )->ShowAsync(); },
-		[this]( Object^ ) { return IsButtonEnabled; } );
+		[wr]( Object^ )
+		{
+			auto that = wr.Resolve<MainPageViewModel>();
+			return that->IsButtonEnabled;
+		} );
 	ButtonAlwaysCanExecuteCommand = ref new RelayCommand(
 		[]( Object^ ) { ( ref new MessageDialog( "Clicked!" ) )->ShowAsync(); } );
 
 #if WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP
 	F5Command = ref new RelayCommand(
 		[]( Object^ ) { ( ref new MessageDialog( "F5 Pressed!" ) )->ShowAsync(); },
-		[this]( Object^ ) { return IsF5KeyEnabled; } );
+		[wr]( Object^ )
+		{
+			auto that = wr.Resolve<MainPageViewModel>();
+			return that->IsF5KeyEnabled;
+		} );
 #endif
 
 	ViewModelCollection = ViewModelHelper::CreateDispatcherVector<Windows::Foundation::DateTime, String^>(
@@ -66,10 +75,10 @@ IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorMinValue, PropertyMetad
 IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorMaxValue, PropertyMetadata::Create( 1.f ) )
 IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorCurrentValue, PropertyMetadata::Create( 0.5f ) )
 #else
+IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsTitleEnabled, PropertyMetadata::Create( true ) )
+IMPL_DP_GETSET( MainPageViewModel, String, Title, PropertyMetadata::Create( "Title Sample" ) )
 IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsF5KeyEnabled, PropertyMetadata::Create( true ) )
 IMPL_DP_GETSET( MainPageViewModel, RelayCommand, F5Command, nullptr )
 #endif
 
-IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsTitleEnabled, PropertyMetadata::Create( true ) )
-IMPL_DP_GETSET( MainPageViewModel, String, Title, PropertyMetadata::Create( "Title Sample" ) )
 IMPL_DP_VALUE_GETSET( MainPageViewModel, int, ComparisonValue, nullptr )

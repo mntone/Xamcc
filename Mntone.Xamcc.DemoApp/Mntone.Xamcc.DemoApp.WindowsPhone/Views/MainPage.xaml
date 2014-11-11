@@ -12,7 +12,8 @@
 	x:Class="Mntone.Xamcc.DemoApp.Views.MainPage"
 	x:Name="pageRoot"
 	DataContext="{Binding MainPage, Source={StaticResource ViewModelLocator}}">
-	<i:Interaction.Behaviors>
+	<!-- Memory leak to use this. -->
+	<!--<i:Interaction.Behaviors>
 		<b:ProgressIndicatorBehavior
 			IsEnabled="{Binding IsIndicatorEnabled}"
 			IsIndeterminate="{Binding IsIndicatorIndeterminate}"
@@ -20,10 +21,7 @@
 			Minimum="{Binding IndicatorMinValue}"
 			Maximum="{Binding IndicatorMaxValue}"
 			Value="{Binding IndicatorCurrentValue}" />
-		<b:WindowTitleBehavior
-			IsEnabled="{Binding IsTitleEnabled}"
-			Title="{Binding Title}" />
-	</i:Interaction.Behaviors>
+	</i:Interaction.Behaviors>-->
 
 	<Page.Resources>
 		<c:Int32ComparisonToVisibilityConveter
@@ -118,42 +116,7 @@
 						Grid.Column="1"
 						Text="{Binding ButtonMessage, Mode=TwoWay}" />
 				</Grid>
-
-				<Grid>
-					<Grid.RowDefinitions>
-						<RowDefinition />
-						<RowDefinition />
-						<RowDefinition />
-					</Grid.RowDefinitions>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition
-							Width="140" />
-						<ColumnDefinition
-							Width="200" />
-					</Grid.ColumnDefinitions>
-
-					<TextBlock
-						Grid.Row="0"
-						Grid.ColumnSpan="2"
-						Text="Title"
-						Style="{StaticResource SubheaderTextBlockStyle}" />
-
-					<ToggleSwitch
-						Grid.Row="1"
-						Grid.ColumnSpan="2"
-						IsOn="{Binding IsTitleEnabled, Mode=TwoWay}" />
-
-					<TextBlock
-						Grid.Row="2"
-						Text="Title:"
-						Style="{StaticResource BodyTextBlockStyle}" />
-					<TextBox
-						Grid.Row="2"
-						Grid.Column="1"
-						Text="{Binding Title, Mode=TwoWay}" />
-				</Grid>
-
-
+				
 				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition />

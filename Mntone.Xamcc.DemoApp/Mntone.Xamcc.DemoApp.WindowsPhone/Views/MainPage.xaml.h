@@ -8,6 +8,10 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace Views {
 	public:
 		MainPage();
 
+	protected:
+		virtual void OnNavigatedTo( ::Windows::UI::Xaml::Navigation::NavigationEventArgs^ e ) override sealed;
+		virtual void OnNavigatedFrom( ::Windows::UI::Xaml::Navigation::NavigationEventArgs^ e ) override sealed;
+
 	public:
 		property Mntone::Xamcc::NavigationHelper^ NavigationHelper
 		{
@@ -16,6 +20,8 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace Views {
 		}
 
 	private:
+		::Microsoft::Xaml::Interactivity::BehaviorCollection^ bc_;
+
 		static Windows::UI::Xaml::DependencyProperty^ NavigationHelperProperty_;
 	};
 

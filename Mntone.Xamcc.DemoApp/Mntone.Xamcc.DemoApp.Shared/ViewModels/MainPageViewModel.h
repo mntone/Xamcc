@@ -47,17 +47,6 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			void set( Platform::Collections::Deque<Platform::String^>^ value );
 		}
 
-		property bool IsTitleEnabled
-		{
-			bool get();
-			void set( bool value );
-		}
-		property ::Platform::String^ Title
-		{
-			::Platform::String^ get();
-			void set( ::Platform::String^ value );
-		}
-
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 		property bool IsIndicatorEnabled
 		{
@@ -89,7 +78,18 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			float32 get();
 			void set( float32 value );
 		}
-#else
+#else	
+		property bool IsTitleEnabled
+		{
+			bool get();
+			void set( bool value );
+		}
+		property ::Platform::String^ Title
+		{
+			::Platform::String^ get();
+			void set( ::Platform::String^ value );
+		}
+
 		property bool IsF5KeyEnabled
 		{
 			bool get();
@@ -119,8 +119,6 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			^ ButtonAlwaysCanExecuteCommandProperty_,
 			^ ViewModelCollectionProperty_,
 			^ ViewModelCollection2Property_,
-			^ IsTitleEnabledProperty_,
-			^ TitleProperty_,
 			^ ComparisonValueProperty_;
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
@@ -133,6 +131,8 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			^ IndicatorCurrentValueProperty_;
 #else
 		static Windows::UI::Xaml::DependencyProperty
+			^ IsTitleEnabledProperty_,
+			^ TitleProperty_,
 			^ IsF5KeyEnabledProperty_,
 			^ F5CommandProperty_;
 #endif

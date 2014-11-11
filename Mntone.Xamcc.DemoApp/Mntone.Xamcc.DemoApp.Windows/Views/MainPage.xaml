@@ -12,7 +12,8 @@
 	x:Class="Mntone.Xamcc.DemoApp.Views.MainPage"
 	x:Name="pageRoot"
 	DataContext="{Binding MainPage, Source={StaticResource ViewModelLocator}}">
-	<i:Interaction.Behaviors>
+	<!-- Memory leak to use this. -->
+	<!--<i:Interaction.Behaviors>
 		<b:WindowTitleBehavior
 			IsEnabled="{Binding IsTitleEnabled}"
 			Title="{Binding Title}" />
@@ -22,7 +23,7 @@
 			<e:InvokeCommandAction
 				Command="{Binding F5Command}" />
 		</b:KeyTriggerBehavior>
-	</i:Interaction.Behaviors>
+	</i:Interaction.Behaviors>-->
 
 	<Page.Resources>
 		<c:Int32ComparisonToVisibilityConveter
