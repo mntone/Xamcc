@@ -18,13 +18,10 @@ namespace Mntone { namespace Xamcc { namespace Interactions {
 	private:
 		void Invoke();
 		void Update( ::Windows::UI::Xaml::Controls::Page^ page, ::Windows::Foundation::Size size );
-		void Release();
 
 		void AddHookToWindow();
 		void RemoveHookToWindow();
 
-		void OnLoaded( ::Platform::Object^ sender, ::Windows::UI::Xaml::RoutedEventArgs^ e );
-		void OnUnloaded( ::Platform::Object^ sender, ::Windows::UI::Xaml::RoutedEventArgs^ e );
 		void OnSizeChanged( ::Platform::Object ^sender, ::Windows::UI::Xaml::SizeChangedEventArgs^ e );
 		void OnAcceleratorKeyActivated( Windows::UI::Core::CoreDispatcher^ sender, Windows::UI::Core::AcceleratorKeyEventArgs^ e );
 

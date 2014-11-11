@@ -22,7 +22,6 @@ void ProgressIndicatorBehavior::Attach( DependencyObject^ associatedObject )
 	}
 
 	AssociatedObject_ = page;
-	unloadedEventToken_ = page->Unloaded += ref new RoutedEventHandler( this, &ProgressIndicatorBehavior::OnUnloaded );
 
 	if( IsEnabled )
 	{
@@ -39,27 +38,7 @@ void ProgressIndicatorBehavior::Attach( DependencyObject^ associatedObject )
 
 void ProgressIndicatorBehavior::Detach()
 {
-	Release();
-}
-
-void ProgressIndicatorBehavior::Release()
-{
-	auto page = AssociatedObject_.Resolve<Page>();
-	if( page )
-	{
-		page->Unloaded -= unloadedEventToken_;
-		AssociatedObject_ = nullptr;
-
-		if( IsEnabled )
-		{
-			IsEnabled = false;
-		}
-	}
-}
-
-void ProgressIndicatorBehavior::OnUnloaded( Object^ sender, RoutedEventArgs^ e )
-{
-	Release();
+	AssociatedObject_ = nullptr;
 }
 
 IAsyncAction^ ProgressIndicatorBehavior::ShowAsync()

@@ -21,34 +21,13 @@ void WindowTitleBehavior::Attach( DependencyObject^ associatedObject )
 	}
 
 	AssociatedObject_ = page;
-	unloadedEventToken_ = page->Unloaded += ref new RoutedEventHandler( this, &WindowTitleBehavior::OnUnloaded );
 
 	Update();
 }
 
 void WindowTitleBehavior::Detach()
 {
-	Release();
-}
-
-void WindowTitleBehavior::Release()
-{
-	auto page = AssociatedObject_.Resolve<Page>();
-	if( page )
-	{
-		page->Unloaded -= unloadedEventToken_;
-		AssociatedObject_ = nullptr;
-
-		if( IsEnabled )
-		{
-			IsEnabled = false;
-		}
-	}
-}
-
-void WindowTitleBehavior::OnUnloaded( Object^ sender, RoutedEventArgs^ e )
-{
-	Release();
+	AssociatedObject_ = nullptr;
 }
 
 void WindowTitleBehavior::Update()

@@ -14,9 +14,6 @@ namespace Mntone { namespace Xamcc { namespace Interactions {
 		virtual void Detach() sealed;
 
 	private:
-		void Release();
-		void OnUnloaded( ::Platform::Object^ sender, ::Windows::UI::Xaml::RoutedEventArgs^ e );
-
 		void Update();
 		void Update( ::Platform::String^ value );
 

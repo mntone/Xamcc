@@ -29,14 +29,25 @@ void KeyTriggerBehavior::Attach( DependencyObject^ associatedObject )
 	}
 
 	AssociatedObject_ = page;
-	loadedEventToken_ = page->Loaded += ref new RoutedEventHandler( this, &KeyTriggerBehavior::OnLoaded );
-	unloadedEventToken_ = page->Unloaded += ref new RoutedEventHandler( this, &KeyTriggerBehavior::OnUnloaded );
 	sizeChangedEventToken_ = page->SizeChanged += ref new SizeChangedEventHandler( this, &KeyTriggerBehavior::OnSizeChanged );
+
+	auto rect = Window::Current->Bounds;
+	Update( page, Size{ rect.Width, rect.Height } );
 }
 
 void KeyTriggerBehavior::Detach()
 {
-	Release();
+	if( keyEventTriggerRegistered_ )
+	{
+		RemoveHookToWindow();
+	}
+
+	auto page = AssociatedObject_.Resolve<Page>();
+	if( page )
+	{
+		page->SizeChanged -= sizeChangedEventToken_;
+		AssociatedObject_ = nullptr;
+	}
 }
 
 void KeyTriggerBehavior::Invoke()
@@ -88,26 +99,6 @@ void KeyTriggerBehavior::RemoveHookToWindow()
 	coreWindow->Dispatcher->AcceleratorKeyActivated -= acceleratorKeyEventToken_;
 
 	keyEventTriggerRegistered_ = false;
-}
-
-void KeyTriggerBehavior::Release()
-{
-	AssociatedObject_ = nullptr;
-}
-
-void KeyTriggerBehavior::OnLoaded( Object^ sender, RoutedEventArgs^ e )
-{
-	auto page = safe_cast<Page^>( sender );
-	page->Loaded -= loadedEventToken_;
-}
-
-void KeyTriggerBehavior::OnUnloaded( Object^ sender, RoutedEventArgs^ e )
-{
-	auto page = safe_cast<Page^>( sender );
-	page->Unloaded -= unloadedEventToken_;
-	page->SizeChanged -= sizeChangedEventToken_;
-
-	Release();
 }
 
 void KeyTriggerBehavior::OnSizeChanged( Object^ sender, SizeChangedEventArgs^ e )

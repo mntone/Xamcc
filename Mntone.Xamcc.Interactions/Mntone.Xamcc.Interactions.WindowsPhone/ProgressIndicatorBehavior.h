@@ -17,9 +17,6 @@ namespace Mntone { namespace Xamcc { namespace Interactions {
 		::Windows::Foundation::IAsyncAction^ HideAsync();
 
 	private:
-		void Release();
-		void OnUnloaded( ::Platform::Object^ sender, ::Windows::UI::Xaml::RoutedEventArgs^ e );
-
 		void UpdateText( ::Platform::String^ value );
 
 		void UpdateProgress();
