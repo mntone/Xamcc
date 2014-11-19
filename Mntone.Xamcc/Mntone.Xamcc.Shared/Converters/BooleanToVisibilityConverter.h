@@ -27,14 +27,9 @@ namespace Mntone { namespace Xamcc { namespace Converters {
 			bool get() { return IsInversed_; }
 			void set( bool value ) { IsInversed_ = value; }
 		}
-		property bool DefaultValue
-		{
-			bool get() { return DefaultValue_; }
-			void set( bool value ) { DefaultValue_ = value; }
-		}
 
 	private:
-		bool IsInversed_, DefaultValue_;
+		bool IsInversed_;
 	};
 
 } } }

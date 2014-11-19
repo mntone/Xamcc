@@ -7,25 +7,24 @@ using namespace Windows::UI::Xaml::Interop;
 using namespace Mntone::Xamcc::Converters;
 
 BooleanToNegativeBooleanConverter::BooleanToNegativeBooleanConverter()
-	: DefaultValue_( false )
 { }
 
 Object^ BooleanToNegativeBooleanConverter::Convert( Object^ value, TypeName /*targetType*/, Object^ /*parameter*/, String^ /*language*/ )
 {
 	auto flag = dynamic_cast<IBox<bool>^>( value );
-	if( flag )
+	if( flag != nullptr )
 	{
 		return !flag->Value;
 	}
-	return DefaultValue_;
+	return DependencyProperty::UnsetValue;
 }
 
 Object^ BooleanToNegativeBooleanConverter::ConvertBack( Object^ value, TypeName /*targetType*/, Object^ /*parameter*/, String^ /*language*/ )
 {
 	auto flag = dynamic_cast<IBox<bool>^>( value );
-	if( flag )
+	if( flag != nullptr )
 	{
 		return !flag->Value;
 	}
-	return !DefaultValue_;
+	return nullptr;
 }

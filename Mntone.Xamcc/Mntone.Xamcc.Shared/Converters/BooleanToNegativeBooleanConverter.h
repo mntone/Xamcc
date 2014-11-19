@@ -20,16 +20,6 @@ namespace Mntone { namespace Xamcc { namespace Converters {
 			::Windows::UI::Xaml::Interop::TypeName targetType,
 			::Platform::Object^ parameter,
 			::Platform::String^ language );
-
-	public:
-		property bool DefaultValue
-		{
-			bool get() { return DefaultValue_; }
-			void set( bool value ) { DefaultValue_ = value; }
-		}
-
-	private:
-		bool DefaultValue_;
 	};
 
 } } }
