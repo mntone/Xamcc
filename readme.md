@@ -1,5 +1,5 @@
 # Xamcc
-Xamcc is MVVM infrastructure for C++/CX.
+Xamcc is MVVM toolkit for C++/CX.
 
 Support platforms:
 
@@ -7,16 +7,18 @@ Support platforms:
 - Windows Phone 8.1
 
 ## License
-This component and demoapp is “MIT license.”
+This component and demo application is under “MIT license.”
 
 ## Avaliable
-- DependencyObject/Property Preprocessor
+- Property/DependencyObject Preprocessor
 - Command support (Support STL functional.)
-- M to VM vector (Support Vector and C++/CX Helper Deque.)
+- M to VM vector (Support Vector)
+- Commonly used behavior and converters
 
 ## Sample code
 
 ### Model vector to ViewModel vector
+	EventWrapper<IObservableVector<DateTime>> eventWrapper;
 	ViewModelCollection = ViewModelHelper::CreateDispatcherVector<Windows::Foundation::DateTime, String^>(
 	  processor_.GetVector(),
 	  []( Windows::Foundation::DateTime from )
@@ -24,7 +26,8 @@ This component and demoapp is “MIT license.”
 	    using namespace Windows::Globalization::DateTimeFormatting;
 	    return ( ref new DateTimeFormatter( "longtime" ) )->Format( from );
 	  },
-	  dispatcher );
+	  dispatcher,
+	  &eventWrapper );
 
 ### Binding window title (Windows only)
 	<Page
@@ -34,7 +37,6 @@ This component and demoapp is “MIT license.”
 	    <b:WindowTitleBehavior IsEnabled="{Binding IsTitleEnabled}" Title="{Binding Title}" />
 	  </i:Interaction.Behaviors>
 	</Page>
-
 
 ### Binding progress indicator (Windows Phone only)
 	<Page
@@ -50,6 +52,3 @@ This component and demoapp is “MIT license.”
 	      Value="{Binding IndicatorCurrentValue}" />
 	  </i:Interaction.Behaviors>
 	</Page>
-
-# Related project
-- [C++/CX Helper](//github.com/mntone/CppCx-Helper)
