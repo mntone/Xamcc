@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>EC2E9772-59ED-45B9-9066-A6F4B71440FA</SharedGUID>
+    <ItemsProjectGuid>{C8DC5979-E27A-4999-8D5B-6CDE0E00AD7C}</ItemsProjectGuid>
+    <ItemsRootNamespace>Mntone.Xamcc.Test</ItemsRootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BooleanToVisibilityConverterUnitTest.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Int32ComparisonToBooleanConveterUnitTest.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Int32ComparisonToVisibilityConveterUnitTest.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BooleanToNegativeBooleanConverterUnitTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
+  </ItemGroup>
+</Project>

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ViewModelLocator.h"
+#include "MainPageViewModel.h"
 
 using namespace Windows::UI::Xaml;
 using namespace Mntone::Xamcc::DemoApp::ViewModels;

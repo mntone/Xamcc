@@ -12,9 +12,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DispatcherHelper.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectPreprocessor.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)include\ViewModelHelper.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -39,6 +36,21 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.h">
       <Filter>Converters</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Foundation\TimeSpanHelper.h">
+      <Filter>Foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\Foundation\EventWrapper.h">
+      <Filter>include\Foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\Foundation\TimeSpanReference.h">
+      <Filter>include\Foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\Preprocessor\PropertyPreprocessor.h">
+      <Filter>include\Preprocessor</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\Preprocessor\DependencyObjectPreprocessor.h">
+      <Filter>include\Preprocessor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
@@ -60,6 +72,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.cpp">
       <Filter>Converters</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Foundation\TimeSpanHelper.cpp">
+      <Filter>Foundation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -73,6 +88,15 @@
     </Filter>
     <Filter Include="Controls">
       <UniqueIdentifier>{e7c3df91-9aab-42a9-aaff-7a47482e7bc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Foundation">
+      <UniqueIdentifier>{3c9f9488-f747-4abf-9fe9-09c56f3c4af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Foundation">
+      <UniqueIdentifier>{7fad35dc-99fa-4105-acf1-2ec32765c0eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Preprocessor">
+      <UniqueIdentifier>{af1aecc9-3507-49e6-a091-5a9c945f676f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

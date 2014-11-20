@@ -8,8 +8,14 @@
 #define XAMCC_YOUR_ROOT_NAMESPACE_END }
 #endif
 
-#include "DependencyObjectPreprocessor.h"
+#include "Preprocessor\PropertyPreprocessor.h"
+#include "Preprocessor\DependencyObjectPreprocessor.h"
+
+#include "Foundation\TimeSpanReference.h"
+#include "Foundation\EventWrapper.h"
+
+#include "Commands\RelayCommand.h"
+
 #include "DependencyObjectCollectionCpp.h"
 #include "DispatcherHelper.h"
 #include "ViewModelHelper.h"
-#include "Commands/RelayCommand.h"

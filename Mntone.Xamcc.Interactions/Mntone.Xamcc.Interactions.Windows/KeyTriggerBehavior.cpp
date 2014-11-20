@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "KeyTriggerBehavior.h"
-#include "..\..\packages\CppCxHelper.0.9.4\build\native\include\PropertyPreprocessor.h"
-#include "..\..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\DependencyObjectPreprocessor.h"
+#include "..\..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Preprocessor\PropertyPreprocessor.h"
+#include "..\..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Preprocessor\DependencyObjectPreprocessor.h"
 
 using namespace Microsoft::Xaml::Interactivity;
 using namespace Platform;

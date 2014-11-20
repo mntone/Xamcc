@@ -28,7 +28,6 @@
 	<Page.Resources>
 		<c:Int32ComparisonToVisibilityConveter
 			x:Key="equalToParameterToVisibilityConverter"
-			DefaultValue="0"
 			ComparisonType="EqualTo" />
 	</Page.Resources>
 

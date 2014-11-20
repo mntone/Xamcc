@@ -1,7 +1,8 @@
 #pragma once
-#include "MainPageViewModel.h"
 
 namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
+
+	ref class MainPageViewModel;
 
 	[Windows::UI::Xaml::Data::Bindable]
 	[Windows::Foundation::Metadata::WebHostHidden]

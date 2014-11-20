@@ -18,14 +18,14 @@ Object^ Int32ComparisonToVisibilityConveter::Convert( Object^ value, TypeName /*
 {
 	auto intValue = dynamic_cast<IBox<int32>^>( value );
 	auto stringParameter = dynamic_cast<String^>( parameter );
-	return comparisonFunction_( intValue ? intValue->Value : DefaultValue_, stringParameter ? _wtoi( stringParameter->Data() ) : 0 ) ? Visibility::Visible : Visibility::Collapsed;
+	return intValue
+		? ( comparisonFunction_( intValue->Value, stringParameter ? _wtoi( stringParameter->Data() ) : 0 ) ? Visibility::Visible : Visibility::Collapsed )
+		: DependencyProperty::UnsetValue;
 }
 
 Object^ Int32ComparisonToVisibilityConveter::ConvertBack( Object^ value, TypeName /*targetType*/, Object^ parameter, String^ /*language*/ )
 {
-	auto visibilityValue = dynamic_cast<IBox<Visibility>^>( value );
-	auto stringParameter = dynamic_cast<String^>( parameter );
-	return visibilityValue && visibilityValue->Value == Visibility::Visible ? ( stringParameter ? _wtoi( stringParameter->Data() ) : 0 ) : -1;
+	throw ref new FailureException();
 }
 
 void Int32ComparisonToVisibilityConveter::ComparisonType::set( MXC::ComparisonType value )
@@ -47,19 +47,19 @@ void Int32ComparisonToVisibilityConveter::ComparisonType::set( MXC::ComparisonTy
 		break;
 
 	case MXC::ComparisonType::LessThan:
-		comparisonFunction_ = []( int32 value, int32 parameter ) { return value > parameter; };
-		break;
-
-	case MXC::ComparisonType::LessThanOrEqualTo:
-		comparisonFunction_ = []( int32 value, int32 parameter ) { return value >= parameter; };
-		break;
-
-	case MXC::ComparisonType::GreaterThan:
 		comparisonFunction_ = []( int32 value, int32 parameter ) { return value < parameter; };
 		break;
 
-	case MXC::ComparisonType::GreaterThanOrEqualTo:
+	case MXC::ComparisonType::LessThanOrEqualTo:
 		comparisonFunction_ = []( int32 value, int32 parameter ) { return value <= parameter; };
+		break;
+
+	case MXC::ComparisonType::GreaterThan:
+		comparisonFunction_ = []( int32 value, int32 parameter ) { return value > parameter; };
+		break;
+
+	case MXC::ComparisonType::GreaterThanOrEqualTo:
+		comparisonFunction_ = []( int32 value, int32 parameter ) { return value >= parameter; };
 		break;
 
 	default:

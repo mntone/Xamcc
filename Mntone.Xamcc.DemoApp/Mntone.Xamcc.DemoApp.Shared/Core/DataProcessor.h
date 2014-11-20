@@ -3,9 +3,9 @@
 
 namespace std {
 	template<>
-	struct equal_to<Windows::Foundation::DateTime>
+	struct equal_to<::Windows::Foundation::DateTime>
 	{
-		bool operator()( const Windows::Foundation::DateTime& lhs, const Windows::Foundation::DateTime& rhs )
+		bool operator()( const ::Windows::Foundation::DateTime& lhs, const ::Windows::Foundation::DateTime& rhs )
 		{
 			return lhs.UniversalTime == rhs.UniversalTime;
 		}
@@ -19,14 +19,14 @@ namespace Mntone { namespace Xamcc {
 	public:
 		DataProcessor();
 
-		Platform::Collections::Vector<Windows::Foundation::DateTime>^ GetVector();
-		Platform::Collections::Deque<Windows::Foundation::DateTime>^ GetDeque();
+		::Platform::Collections::Vector<Windows::Foundation::DateTime>^ GetVector();
+		::Platform::Collections::Vector<Windows::Foundation::DateTime>^ GetVector2();
 
 	private:
-		Platform::Collections::Vector<Windows::Foundation::DateTime>^ Vector_;
-		Platform::Collections::Deque<Windows::Foundation::DateTime>^ Deque_;
+		::Platform::Collections::Vector<Windows::Foundation::DateTime>^ Vector_;
+		::Platform::Collections::Vector<Windows::Foundation::DateTime>^ Vector2_;
 
-		Windows::System::Threading::ThreadPoolTimer^ timer_;
+		::Windows::System::Threading::ThreadPoolTimer^ timer_;
 	};
 
 } }

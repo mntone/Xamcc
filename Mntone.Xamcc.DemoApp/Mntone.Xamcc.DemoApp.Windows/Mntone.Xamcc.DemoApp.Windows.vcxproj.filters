@@ -14,7 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Mntone.Xamcc.DemoApp.Windows_TemporaryKey.pfx" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Logo.scale-100.png">

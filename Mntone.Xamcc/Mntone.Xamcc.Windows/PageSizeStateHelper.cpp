@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "PageSizeStateHelper.h"
-#include "include\DependencyObjectPreprocessor.h"
+#include "include\Preprocessor\DependencyObjectPreprocessor.h"
 
 using namespace Platform;
 using namespace Windows::UI::Xaml;

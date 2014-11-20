@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "NavigationHelper.h"
-#include "include\DependencyObjectPreprocessor.h"
+#include "include\Preprocessor\DependencyObjectPreprocessor.h"
 
 using namespace Platform;
 using namespace Platform::Collections;

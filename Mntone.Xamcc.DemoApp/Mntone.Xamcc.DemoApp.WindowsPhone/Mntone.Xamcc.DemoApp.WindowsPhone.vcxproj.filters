@@ -41,7 +41,4 @@
       <Filter>Views</Filter>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
 </Project>

@@ -24,11 +24,6 @@ namespace Mntone { namespace Xamcc { namespace Converters {
 			::Platform::String^ language );
 
 	public:
-		property int32 DefaultValue
-		{
-			int32 get() { return DefaultValue_; }
-			void set( int32 value ) { DefaultValue_ = value; }
-		}
 		property Converters::ComparisonType ComparisonType
 		{
 			Converters::ComparisonType get() { return ComparisonType_; }
@@ -36,7 +31,6 @@ namespace Mntone { namespace Xamcc { namespace Converters {
 		}
 
 	private:
-		int32 DefaultValue_;
 		Converters::ComparisonType ComparisonType_;
 
 		::std::function<bool( int32, int32 )> comparisonFunction_;

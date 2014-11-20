@@ -15,36 +15,36 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 		static void OnIsButtonEnabledPropertyChanged( Windows::UI::Xaml::DependencyObject^ d, Windows::UI::Xaml::DependencyPropertyChangedEventArgs^ e );
 
 	internal:
-		property Platform::String^ ButtonMessage
+		property ::Platform::String^ ButtonMessage
 		{
-			Platform::String^ get();
-			void set( Platform::String^ value );
+			::Platform::String^ get();
+			void set( ::Platform::String^ value );
 		}
 		property bool IsButtonEnabled
 		{
 			bool get();
 			void set( bool value );
 		}
-		property Mntone::Xamcc::Commands::RelayCommand^ ButtonCommand
+		property ::Mntone::Xamcc::Commands::RelayCommand^ ButtonCommand
 		{
-			Mntone::Xamcc::Commands::RelayCommand^ get();
-			void set( Mntone::Xamcc::Commands::RelayCommand^ value );
+			::Mntone::Xamcc::Commands::RelayCommand^ get();
+			void set( ::Mntone::Xamcc::Commands::RelayCommand^ value );
 		}
-		property Mntone::Xamcc::Commands::RelayCommand^ ButtonAlwaysCanExecuteCommand
+		property ::Mntone::Xamcc::Commands::RelayCommand^ ButtonAlwaysCanExecuteCommand
 		{
-			Mntone::Xamcc::Commands::RelayCommand^ get();
-			void set( Mntone::Xamcc::Commands::RelayCommand^ value );
+			::Mntone::Xamcc::Commands::RelayCommand^ get();
+			void set( ::Mntone::Xamcc::Commands::RelayCommand^ value );
 		}
 
-		property Platform::Collections::Vector<Platform::String^>^ ViewModelCollection
+		property ::Platform::Collections::Vector<::Platform::String^>^ ViewModelCollection
 		{
-			Platform::Collections::Vector<Platform::String^>^ get();
-			void set( Platform::Collections::Vector<Platform::String^>^ value );
+			::Platform::Collections::Vector<::Platform::String^>^ get();
+			void set( ::Platform::Collections::Vector<::Platform::String^>^ value );
 		}
-		property Platform::Collections::Deque<Platform::String^>^ ViewModelCollection2
+		property ::Platform::Collections::Vector<::Platform::String^>^ ViewModelCollection2
 		{
-			Platform::Collections::Deque<Platform::String^>^ get();
-			void set( Platform::Collections::Deque<Platform::String^>^ value );
+			::Platform::Collections::Vector<::Platform::String^>^ get();
+			void set( ::Platform::Collections::Vector<::Platform::String^>^ value );
 		}
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
@@ -109,8 +109,12 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 		}
 
 	private:
-		Mntone::Xamcc::DispatcherHelper^ dispatcherHelper_;
-		Mntone::Xamcc::DataProcessor processor_;
+		::Mntone::Xamcc::DispatcherHelper^ dispatcherHelper_;
+		::Mntone::Xamcc::DataProcessor processor_;
+
+		::Mntone::Xamcc::Foundation::EventWrapper<::Windows::Foundation::Collections::IObservableVector<::Windows::Foundation::DateTime>>
+			^ viewModelCollectionEventWrapper_,
+			^ viewModelCollection2EventWrapper_;
 
 		static Windows::UI::Xaml::DependencyProperty
 			^ ButtonMessageProperty_,

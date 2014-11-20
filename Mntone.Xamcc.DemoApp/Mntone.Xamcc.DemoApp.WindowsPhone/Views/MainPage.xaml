@@ -26,7 +26,6 @@
 	<Page.Resources>
 		<c:Int32ComparisonToVisibilityConveter
 			x:Key="equalToParameterToVisibilityConverter"
-			DefaultValue="0"
 			ComparisonType="EqualTo" />
 	</Page.Resources>
 
@@ -237,9 +236,11 @@
 					Style="{StaticResource SubheaderTextBlockStyle}" />
 
 				<ListBox
+					Height="200"
 					ItemsSource="{Binding ViewModelCollection}" />
 
 				<ListBox
+					Height="200"
 					ItemsSource="{Binding ViewModelCollection2}" />
 			</StackPanel>
 		</ScrollViewer>

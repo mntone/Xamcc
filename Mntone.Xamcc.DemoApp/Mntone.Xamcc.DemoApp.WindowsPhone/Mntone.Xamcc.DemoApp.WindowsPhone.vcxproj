@@ -50,7 +50,7 @@
     <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>Mntone.Xamcc.DemoApp</TargetName>
-    <NuGetPackageImportStamp>3b26514f</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>046894d5</NuGetPackageImportStamp>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -131,19 +131,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKNative, Version=12.0" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\packages\CppCxHelper.0.9.4\build\native\CppCxHelper.targets" Condition="Exists('..\..\packages\CppCxHelper.0.9.4\build\native\CppCxHelper.targets')" />
-  </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>このプロジェクトは、このコンピューターにはない NuGet パッケージを参照しています。これらをダウンロードするには、NuGet パッケージの復元を有効にしてください。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。不足しているファイルは {0} です。</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\CppCxHelper.0.9.4\build\native\CppCxHelper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CppCxHelper.0.9.4\build\native\CppCxHelper.targets'))" />
-  </Target>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>
