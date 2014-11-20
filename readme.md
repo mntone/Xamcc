@@ -18,16 +18,25 @@ This component and demo application is under “MIT license.”
 ## Sample code
 
 ### Model vector to ViewModel vector
-	EventWrapper<IObservableVector<DateTime>> eventWrapper;
-	ViewModelCollection = ViewModelHelper::CreateDispatcherVector<Windows::Foundation::DateTime, String^>(
+	EventWrapper<IObservableVector<DateTime>>^ eventWrapper;
+	ViewModelCollection = ViewModelHelper::CreateDispatcherVector<DateTime, String^>(
 	  processor_.GetVector(),
-	  []( Windows::Foundation::DateTime from )
-	  {
-	    using namespace Windows::Globalization::DateTimeFormatting;
-	    return ( ref new DateTimeFormatter( "longtime" ) )->Format( from );
-	  },
+	  []( DateTime from ) { return DateTimeFormatter::LongTime->Format( from ); },
 	  dispatcher,
 	  &eventWrapper );
+
+### Int32 Comparison Converter
+	<Grid>
+	  <Grid.Resources>
+	    <c:Int32ComparisonToVisibilityConveter
+	      x:Key="EqualToParameterToVisibilityConverter"
+	      ComparisonType="EqualTo" />
+	  </Grid.Resources>
+	  <Border
+	    Background="Red"
+	    Visibility="{Binding Age, Converter={StaticResource equalToParameterToVisibilityConverter}, ConverterParameter=2, Mode=OneWay}" />
+	  <!-- Visible Border object when Age == 2. -->
+	</Grid>
 
 ### Binding window title (Windows only)
 	<Page
