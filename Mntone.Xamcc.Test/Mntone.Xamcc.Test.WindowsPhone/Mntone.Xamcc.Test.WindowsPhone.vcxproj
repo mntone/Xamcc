@@ -51,8 +51,8 @@
     <AppxBundle>Never</AppxBundle>
   </PropertyGroup>
   <PropertyGroup>
-    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(ProjectDir)..\..\obj\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>Mntone.Xamcc.Test</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup>

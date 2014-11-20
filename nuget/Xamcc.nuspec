@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata minClientVersion="2.5">
+        <id>Xamcc</id>
+        <version>0.9.0</version>
+        <title>Xamcc</title>
+        <authors>mntone</authors>
+        <owners>mntone</owners>
+        <licenseUrl>https://github.com/mntone/Xamcc/blob/master/license.md</licenseUrl>
+        <projectUrl>https://github.com/mntone/Xamcc</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Xamcc is MVVM infrastructure for C++/CX. Include Xamcc.h file and try it!</description>
+        <summary>Xamcc is MVVM infrastructure for C++/CX.</summary>
+        <releaseNotes>Major update (bug fix and add new class).</releaseNotes>
+        <copyright>Copyright (c) 2014, mntone. All rights reserved.</copyright>
+        <language>en-US</language>
+        <tags>WinRT Windows WindowsClient WindowsPhone mntone 8.1 C++/CX Xamcc MVVM UI infrastructure</tags>
+
+        <!-- for intellisense -->
+        <references>
+          <reference file="Mntone.Xamcc.winmd" />
+        </references>
+    </metadata>
+    <files>
+        <!-- License -->
+        <file src="..\license.md" target="license.md" />
+        
+        <!-- Settings -->
+        <file src="Xamcc.targets" target="build\native\Xamcc.targets" />
+
+        <!-- Headers -->
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\DependencyObjectCollectionCpp.h" target="build\native\include\DependencyObjectCollectionCpp.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\DispatcherHelper.h" target="build\native\include\DispatcherHelper.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\ViewModelHelper.h" target="build\native\include\ViewModelHelper.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Xamcc.h" target="build\native\include\Xamcc.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Commands\RelayCommand.h" target="build\native\include\Commands\RelayCommand.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Foundation\EventWrapper.h" target="build\native\include\Foundation\EventWrapper.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Foundation\TimeSpanReference.h" target="build\native\include\Foundation\TimeSpanReference.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Preprocessor\PropertyPreprocessor.h" target="build\native\include\Preprocessor\PropertyPreprocessor.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Preprocessor\DependencyObjectPreprocessor.h" target="build\native\include\Preprocessor\DependencyObjectPreprocessor.h" />
+
+        <!-- Windows 8.1 -->
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.dll" target="lib\win81\Mntone.Xamcc.dll" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.pri" target="lib\win81\Mntone.Xamcc.pri" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.winmd" target="lib\win81\Mntone.Xamcc.winmd" />
+
+        <!-- Windows RT 8.1 ARM -->
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.dll" target="lib\win81\ARM\Mntone.Xamcc.dll" />
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.pri" target="lib\win81\ARM\Mntone.Xamcc.pri" />
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.winmd" target="lib\win81\ARM\Mntone.Xamcc.winmd" />
+
+        <!-- Windows 8.1 x64 -->
+        <file src="..\bin\x64-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.dll" target="lib\win81\x64\Mntone.Xamcc.dll" />
+        <file src="..\bin\x64-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.pri" target="lib\win81\x64\Mntone.Xamcc.pri" />
+        <file src="..\bin\x64-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.winmd" target="lib\win81\x64\Mntone.Xamcc.winmd" />
+
+        <!-- Windows 8.1 Win32 -->
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.dll" target="lib\win81\x86\Mntone.Xamcc.dll" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.pri" target="lib\win81\x86\Mntone.Xamcc.pri" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Windows\Mntone.Xamcc.winmd" target="lib\win81\x86\Mntone.Xamcc.winmd" />
+
+        <!-- Windows Phone 8.1 -->
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.dll" target="lib\wpa81\Mntone.Xamcc.dll" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.pri" target="lib\wpa81\Mntone.Xamcc.pri" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.winmd" target="lib\wpa81\Mntone.Xamcc.winmd" />
+
+        <!-- Windows Phone 8.1 ARM -->
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.dll" target="lib\wpa81\ARM\Mntone.Xamcc.dll" />
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.pri" target="lib\wpa81\ARM\Mntone.Xamcc.pri" />
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.winmd" target="lib\wpa81\ARM\Mntone.Xamcc.winmd" />
+
+        <!-- Windows Phone 8.1 Win32 -->
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.dll" target="lib\wpa81\x86\Mntone.Xamcc.dll" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.pri" target="lib\wpa81\x86\Mntone.Xamcc.pri" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.WindowsPhone\Mntone.Xamcc.winmd" target="lib\wpa81\x86\Mntone.Xamcc.winmd" />
+    </files>
+</package>

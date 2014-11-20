@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata minClientVersion="2.5">
+        <id>Xamcc.Interactions</id>
+        <version>0.9.0</version>
+        <title>Xamcc.Interactions</title>
+        <authors>mntone</authors>
+        <owners>mntone</owners>
+        <licenseUrl>https://github.com/mntone/Xamcc/blob/master/license.md</licenseUrl>
+        <projectUrl>https://github.com/mntone/Xamcc</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Xamcc is MVVM infrastructure for C++/CX. In Xamcc.Interactions package, define behaviors.</description>
+        <summary>Xamcc is MVVM infrastructure for C++/CX.</summary>
+        <releaseNotes>Major update (no change).</releaseNotes>
+        <copyright>Copyright (c) 2014, mntone. All rights reserved.</copyright>
+        <language>en-US</language>
+        <tags>WinRT Windows WindowsClient WindowsPhone mntone 8.1 C++/CX Xamcc MVVM UI infrastructure</tags>
+        <dependencies>
+            <dependency id="Xamcc" />
+        </dependencies>
+
+        <!-- for intellisense -->
+        <references>
+          <reference file="Mntone.Xamcc.Interactions.winmd" />
+        </references>
+    </metadata>
+    <files>
+        <!-- License -->
+        <file src="..\license.md" target="license.md" />
+        
+        <!-- Settings -->
+        <file src="Xamcc.Interactions.targets" target="build\native\Xamcc.Interactions.targets" />
+
+        <!-- Windows 8.1 -->
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.dll" target="lib\win81\Mntone.Xamcc.Interactions.dll" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.pri" target="lib\win81\Mntone.Xamcc.Interactions.pri" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.winmd" target="lib\win81\Mntone.Xamcc.Interactions.winmd" />
+
+        <!-- Windows 8.1 ARM -->
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.dll" target="lib\win81\ARM\Mntone.Xamcc.Interactions.dll" />
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.pri" target="lib\win81\ARM\Mntone.Xamcc.Interactions.pri" />
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.winmd" target="lib\win81\ARM\Mntone.Xamcc.Interactions.winmd" />
+
+        <!-- Windows 8.1 x64 -->
+        <file src="..\bin\x64-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.dll" target="lib\win81\x64\Mntone.Xamcc.Interactions.dll" />
+        <file src="..\bin\x64-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.pri" target="lib\win81\x64\Mntone.Xamcc.Interactions.pri" />
+        <file src="..\bin\x64-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.winmd" target="lib\win81\x64\Mntone.Xamcc.Interactions.winmd" />
+
+        <!-- Windows 8.1 Win32 -->
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.dll" target="lib\win81\x86\Mntone.Xamcc.Interactions.dll" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.pri" target="lib\win81\x86\Mntone.Xamcc.Interactions.pri" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.Windows\Mntone.Xamcc.Interactions.winmd" target="lib\win81\x86\Mntone.Xamcc.Interactions.winmd" />
+
+        <!-- Windows Phone 8.1 -->
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.dll" target="lib\wpa81\Mntone.Xamcc.Interactions.dll" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.pri" target="lib\wpa81\Mntone.Xamcc.Interactions.pri" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.winmd" target="lib\wpa81\Mntone.Xamcc.Interactions.winmd" />
+
+        <!-- Windows Phone 8.1 ARM -->
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.dll" target="lib\wpa81\ARM\Mntone.Xamcc.Interactions.dll" />
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.pri" target="lib\wpa81\ARM\Mntone.Xamcc.Interactions.pri" />
+        <file src="..\bin\ARM-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.winmd" target="lib\wpa81\ARM\Mntone.Xamcc.Interactions.winmd" />
+
+        <!-- Windows Phone 8.1 Win32 -->
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.dll" target="lib\wpa81\x86\Mntone.Xamcc.Interactions.dll" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.pri" target="lib\wpa81\x86\Mntone.Xamcc.Interactions.pri" />
+        <file src="..\bin\Win32-Release\Mntone.Xamcc.Interactions.WindowsPhone\Mntone.Xamcc.Interactions.winmd" target="lib\wpa81\x86\Mntone.Xamcc.Interactions.winmd" />
+    </files>
+</package>
