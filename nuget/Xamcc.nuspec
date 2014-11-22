@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata minClientVersion="2.5">
         <id>Xamcc</id>
-        <version>0.9.1</version>
+        <version>0.9.1.1</version>
         <title>Xamcc</title>
         <authors>mntone</authors>
         <owners>mntone</owners>
@@ -34,6 +34,7 @@
         <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\ViewModelHelper.h" target="build\native\include\ViewModelHelper.h" />
         <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Xamcc.h" target="build\native\include\Xamcc.h" />
         <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Commands\RelayCommand.h" target="build\native\include\Commands\RelayCommand.h" />
+        <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Commands\RelayCommand.generic.h" target="build\native\include\Commands\RelayCommand.generic.h" />
         <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Foundation\EventWrapper.h" target="build\native\include\Foundation\EventWrapper.h" />
         <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Foundation\TimeSpanReference.h" target="build\native\include\Foundation\TimeSpanReference.h" />
         <file src="..\Mntone.Xamcc\Mntone.Xamcc.Shared\include\Preprocessor\PropertyPreprocessor.h" target="build\native\include\Preprocessor\PropertyPreprocessor.h" />
