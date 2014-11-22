@@ -30,9 +30,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToBooleanConveter.h">
       <Filter>Converters</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)ComparisonType.h">
-      <Filter>Converters</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.h">
       <Filter>Converters</Filter>
     </ClInclude>
@@ -53,6 +50,18 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.generic.h">
       <Filter>include\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToBooleanConveter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\ComparisonType.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\NumberType.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToVisibilityConveter.h">
+      <Filter>Converters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Foundation\TimeSpanHelper.cpp">
       <Filter>Foundation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToBooleanConveter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToVisibilityConveter.cpp">
+      <Filter>Converters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

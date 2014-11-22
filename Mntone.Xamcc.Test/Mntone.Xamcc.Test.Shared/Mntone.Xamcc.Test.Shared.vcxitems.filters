@@ -14,6 +14,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Int32ComparisonToVisibilityConveterUnitTest.cpp">
       <Filter>Converters</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)NumberComparisonToBooleanConveterUnitTest.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)NumberComparisonToVisibilityConveterUnitTest.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />

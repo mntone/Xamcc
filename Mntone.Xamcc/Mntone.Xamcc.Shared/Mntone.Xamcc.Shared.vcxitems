@@ -14,10 +14,13 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)ComparisonType.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\ComparisonType.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToNegativeBooleanConverter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToBooleanConveter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToVisibilityConveter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Converters\NumberType.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Foundation\TimeSpanHelper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.generic.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectCollectionCpp.h" />
@@ -39,6 +42,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToBooleanConveter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToBooleanConveter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToVisibilityConveter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Foundation\TimeSpanHelper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)NavigationHelper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">

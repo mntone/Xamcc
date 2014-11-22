@@ -14,6 +14,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BooleanToVisibilityConverterUnitTest.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Int32ComparisonToBooleanConveterUnitTest.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Int32ComparisonToVisibilityConveterUnitTest.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)NumberComparisonToBooleanConveterUnitTest.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)NumberComparisonToVisibilityConveterUnitTest.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

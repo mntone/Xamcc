@@ -1,19 +1,16 @@
 #pragma once
 #include <functional>
+#include "NumberType.h"
 #include "ComparisonType.h"
 
 namespace Mntone { namespace Xamcc { namespace Converters {
 
-	[Windows::Foundation::Metadata::Deprecated(
-		"Use `NumberComparisonToVisibilityConveter` instead of `Int32ComparisonToVisibilityConveter`",
-		::Windows::Foundation::Metadata::DeprecationType::Deprecate, 
-		100  )]
 	[Windows::Foundation::Metadata::WebHostHidden]
-	public ref class Int32ComparisonToVisibilityConveter sealed
+	public ref class NumberComparisonToBooleanConveter sealed
 		: public ::Windows::UI::Xaml::Data::IValueConverter
 	{
 	public:
-		Int32ComparisonToVisibilityConveter();
+		NumberComparisonToBooleanConveter();
 
 		virtual ::Platform::Object^ Convert(
 			::Platform::Object^ value,
@@ -28,6 +25,11 @@ namespace Mntone { namespace Xamcc { namespace Converters {
 			::Platform::String^ language );
 
 	public:
+		property Converters::NumberType NumberType
+		{
+			Converters::NumberType get() { return NumberType_; }
+			void set( Converters::NumberType value );
+		}
 		property Converters::ComparisonType ComparisonType
 		{
 			Converters::ComparisonType get() { return ComparisonType_; }
@@ -35,9 +37,13 @@ namespace Mntone { namespace Xamcc { namespace Converters {
 		}
 
 	private:
+		void UpdateFunction();
+
+	private:
+		Converters::NumberType NumberType_;
 		Converters::ComparisonType ComparisonType_;
 
-		::std::function<bool( int32, int32 )> comparisonFunction_;
+		::std::function<::Platform::Object^ ( ::Platform::Object^, ::Platform::String^ )> comparisonFunction_;
 	};
 
 } } }

@@ -1,5 +1,7 @@
 #include "pch.h"
 
+#pragma warning( disable: 4973 )
+
 using namespace Platform;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace Windows::UI::Xaml;
