@@ -63,6 +63,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToVisibilityConveter.h">
       <Filter>Converters</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)number_cast.h">
+      <Filter>internal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
@@ -115,6 +118,9 @@
     </Filter>
     <Filter Include="include\Preprocessor">
       <UniqueIdentifier>{af1aecc9-3507-49e6-a091-5a9c945f676f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal">
+      <UniqueIdentifier>{cc1c764d-f47b-48bc-ab2c-ac41b0b91149}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -31,6 +31,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Preprocessor\DependencyObjectPreprocessor.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Preprocessor\PropertyPreprocessor.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)NavigationHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)number_cast.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Xamcc.h" />
