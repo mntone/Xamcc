@@ -51,6 +51,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Preprocessor\DependencyObjectPreprocessor.h">
       <Filter>include\Preprocessor</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.generic.h">
+      <Filter>include\Commands</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">

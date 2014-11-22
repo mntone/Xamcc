@@ -4,10 +4,10 @@
 namespace Mntone { namespace Xamcc { namespace Commands {
 
 	ref class RelayCommand
-		: [Windows::Foundation::Metadata::Default] Windows::UI::Xaml::Input::ICommand
+		: [Windows::Foundation::Metadata::Default] ::Windows::UI::Xaml::Input::ICommand
 	{
 	internal:
-		RelayCommand( std::function<void( Platform::Object^ )> executeCallback )
+		RelayCommand( ::std::function<void( ::Platform::Object^ )> executeCallback )
 		{
 			if( executeCallback == nullptr )
 			{
@@ -15,12 +15,12 @@ namespace Mntone { namespace Xamcc { namespace Commands {
 			}
 
 			executeCallback_ = executeCallback;
-			canExecuteCallback_ = []( Platform::Object^ ) -> bool { return true; };
+			canExecuteCallback_ = []( ::Platform::Object^ ) -> bool { return true; };
 		}
 
 		RelayCommand(
-			std::function<void( Platform::Object^ )> executeCallback,
-			std::function<bool( Platform::Object^ )> canExecuteCallback )
+			::std::function<void( ::Platform::Object^ )> executeCallback,
+			::std::function<bool( ::Platform::Object^ )> canExecuteCallback )
 		{
 			if( executeCallback == nullptr || canExecuteCallback == nullptr )
 			{
@@ -32,11 +32,11 @@ namespace Mntone { namespace Xamcc { namespace Commands {
 		}
 
 	public:
-		virtual bool CanExecute( Platform::Object^ parameter )
+		virtual bool CanExecute( ::Platform::Object^ parameter )
 		{
 			return canExecuteCallback_( parameter );
 		}
-		virtual void Execute( Platform::Object^ parameter )
+		virtual void Execute( ::Platform::Object^ parameter )
 		{
 			executeCallback_( parameter );
 		}
@@ -47,11 +47,11 @@ namespace Mntone { namespace Xamcc { namespace Commands {
 		}
 
 	public:
-		virtual event Windows::Foundation::EventHandler<Platform::Object^>^ CanExecuteChanged;
+		virtual event Windows::Foundation::EventHandler<::Platform::Object^>^ CanExecuteChanged;
 
 	protected private:
-		std::function<void( Platform::Object^ )> executeCallback_;
-		std::function<bool( Platform::Object^ )> canExecuteCallback_;
+		::std::function<void( ::Platform::Object^ )> executeCallback_;
+		::std::function<bool( ::Platform::Object^ )> canExecuteCallback_;
 	};
 
 } } }

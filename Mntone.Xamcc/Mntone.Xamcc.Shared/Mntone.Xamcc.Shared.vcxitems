@@ -19,6 +19,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToVisibilityConveter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Foundation\TimeSpanHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)include\Commands\RelayCommand.generic.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DependencyObjectCollectionCpp.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\DispatcherHelper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Converters\Int32ComparisonToBooleanConveter.h" />

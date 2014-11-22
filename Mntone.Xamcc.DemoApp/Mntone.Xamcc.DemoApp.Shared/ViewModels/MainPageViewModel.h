@@ -25,10 +25,10 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			bool get();
 			void set( bool value );
 		}
-		property ::Mntone::Xamcc::Commands::RelayCommand^ ButtonCommand
+		property ::Mntone::Xamcc::Commands::RelayCommand2<MainPageViewModel>^ ButtonCommand
 		{
-			::Mntone::Xamcc::Commands::RelayCommand^ get();
-			void set( ::Mntone::Xamcc::Commands::RelayCommand^ value );
+			::Mntone::Xamcc::Commands::RelayCommand2<MainPageViewModel>^ get();
+			void set( ::Mntone::Xamcc::Commands::RelayCommand2<MainPageViewModel>^ value );
 		}
 		property ::Mntone::Xamcc::Commands::RelayCommand^ ButtonAlwaysCanExecuteCommand
 		{
@@ -95,10 +95,10 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			bool get();
 			void set( bool value );
 		}
-		property Mntone::Xamcc::Commands::RelayCommand^ F5Command
+		property ::Mntone::Xamcc::Commands::RelayCommand2<MainPageViewModel>^ F5Command
 		{
-			Mntone::Xamcc::Commands::RelayCommand^ get();
-			void set( Mntone::Xamcc::Commands::RelayCommand^ value );
+			::Mntone::Xamcc::Commands::RelayCommand2<MainPageViewModel>^ get();
+			void set( ::Mntone::Xamcc::Commands::RelayCommand2<MainPageViewModel>^ value );
 		}
 #endif
 

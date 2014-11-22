@@ -15,6 +15,7 @@
 #include "Foundation\EventWrapper.h"
 
 #include "Commands\RelayCommand.h"
+#include "Commands\RelayCommand.generic.h"
 
 #include "DependencyObjectCollectionCpp.h"
 #include "DispatcherHelper.h"

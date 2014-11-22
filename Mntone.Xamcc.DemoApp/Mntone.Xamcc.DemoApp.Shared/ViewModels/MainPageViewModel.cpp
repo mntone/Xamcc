@@ -12,24 +12,18 @@ MainPageViewModel::MainPageViewModel( CoreDispatcher^ dispatcher )
 	: dispatcherHelper_( ref new DispatcherHelper( dispatcher ) )
 {
 	auto wr = WeakReference( this );
-	ButtonCommand = ref new RelayCommand(
-		[]( Object^ ) { ( ref new MessageDialog( "Clicked!" ) )->ShowAsync(); },
-		[wr]( Object^ )
-		{
-			auto that = wr.Resolve<MainPageViewModel>();
-			return that->IsButtonEnabled;
-		} );
+	ButtonCommand = ref new RelayCommand2<MainPageViewModel>(
+		this,
+		[]( MainPageViewModel^, Object^ ) { ( ref new MessageDialog( "Clicked!" ) )->ShowAsync(); },
+		[]( MainPageViewModel^ p, Object^ ) { return p->IsButtonEnabled; } );
 	ButtonAlwaysCanExecuteCommand = ref new RelayCommand(
 		[]( Object^ ) { ( ref new MessageDialog( "Clicked!" ) )->ShowAsync(); } );
 
 #if WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP
-	F5Command = ref new RelayCommand(
-		[]( Object^ ) { ( ref new MessageDialog( "F5 Pressed!" ) )->ShowAsync(); },
-		[wr]( Object^ )
-		{
-			auto that = wr.Resolve<MainPageViewModel>();
-			return that->IsF5KeyEnabled;
-		} );
+	F5Command = ref new RelayCommand2<MainPageViewModel>(
+		this,
+		[]( MainPageViewModel^, Object^ ) { ( ref new MessageDialog( "F5 Pressed!" ) )->ShowAsync(); },
+		[]( MainPageViewModel^ p, Object^ ) { return p->IsF5KeyEnabled; } );
 #endif
 
 	ViewModelCollection = ViewModelHelper::CreateDispatcherVector<Windows::Foundation::DateTime, String^>(
@@ -64,7 +58,7 @@ void MainPageViewModel::OnIsButtonEnabledPropertyChanged( DependencyObject^ d, D
 IMPL_DP_GETSET( MainPageViewModel, String, ButtonMessage, PropertyMetadata::Create( "Click me" ) )
 IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsButtonEnabled,
 	PropertyMetadata::Create( true, ref new PropertyChangedCallback( &MainPageViewModel::OnIsButtonEnabledPropertyChanged ) ) )
-IMPL_DP_GETSET( MainPageViewModel, RelayCommand, ButtonCommand, nullptr )
+IMPL_DP_GETSET( MainPageViewModel, RelayCommand2<MainPageViewModel>, ButtonCommand, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, RelayCommand, ButtonAlwaysCanExecuteCommand, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, Collections::Vector<String^>, ViewModelCollection, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, Collections::Vector<String^>, ViewModelCollection2, nullptr )
@@ -80,7 +74,7 @@ IMPL_DP_VALUE_GETSET( MainPageViewModel, float, IndicatorCurrentValue, PropertyM
 IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsTitleEnabled, PropertyMetadata::Create( true ) )
 IMPL_DP_GETSET( MainPageViewModel, String, Title, PropertyMetadata::Create( "Title Sample" ) )
 IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsF5KeyEnabled, PropertyMetadata::Create( true ) )
-IMPL_DP_GETSET( MainPageViewModel, RelayCommand, F5Command, nullptr )
+IMPL_DP_GETSET( MainPageViewModel, RelayCommand2<MainPageViewModel>, F5Command, nullptr )
 #endif
 
 IMPL_DP_VALUE_GETSET( MainPageViewModel, int, ComparisonValue, nullptr )
