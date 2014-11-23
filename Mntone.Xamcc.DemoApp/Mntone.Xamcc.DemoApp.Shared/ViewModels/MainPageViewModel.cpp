@@ -6,6 +6,7 @@ using namespace Platform;
 using namespace Windows::UI::Core;
 using namespace Windows::UI::Popups;
 using namespace Windows::UI::Xaml;
+using namespace Mntone::Xamcc::DemoApp::Core;
 using namespace Mntone::Xamcc::DemoApp::ViewModels;
 
 MainPageViewModel::MainPageViewModel( CoreDispatcher^ dispatcher )
@@ -44,6 +45,11 @@ MainPageViewModel::MainPageViewModel( CoreDispatcher^ dispatcher )
 		},
 		dispatcher,
 		&viewModelCollection2EventWrapper_ );
+
+	ViewModelCollection3 = ViewModelHelper::CreateDispatcherVector(
+		processor_.GetVector3(),
+		dispatcher,
+		&viewModelCollection3EventWrapper_ );
 }
 
 void MainPageViewModel::OnIsButtonEnabledPropertyChanged( DependencyObject^ d, DependencyPropertyChangedEventArgs^ e )
@@ -62,6 +68,7 @@ IMPL_DP_GETSET( MainPageViewModel, RelayCommand2<MainPageViewModel>, ButtonComma
 IMPL_DP_GETSET( MainPageViewModel, RelayCommand, ButtonAlwaysCanExecuteCommand, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, Collections::Vector<String^>, ViewModelCollection, nullptr )
 IMPL_DP_GETSET( MainPageViewModel, Collections::Vector<String^>, ViewModelCollection2, nullptr )
+IMPL_DP_GETSET( MainPageViewModel, Collections::Vector<INotification^>, ViewModelCollection3, nullptr )
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 IMPL_DP_VALUE_GETSET( MainPageViewModel, bool, IsIndicatorEnabled, PropertyMetadata::Create( false ) )

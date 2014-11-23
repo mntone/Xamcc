@@ -14,6 +14,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Core\DataProcessor.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Core\FollowNotification.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Core\FavoriteNotification.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml" />
@@ -34,6 +40,15 @@
       <Filter>ViewModels</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Core\DataProcessor.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Core\INotification.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Core\FollowNotification.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Core\FavoriteNotification.h">
       <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>

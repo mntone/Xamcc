@@ -20,6 +20,8 @@
       <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Core\DataProcessor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Core\FavoriteNotification.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Core\FollowNotification.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelLocator.cpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)App.xaml.h">
@@ -29,6 +31,9 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClInclude Include="$(MSBuildThisFileDirectory)Core\DataProcessor.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Core\FavoriteNotification.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Core\FollowNotification.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Core\INotification.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelLocator.h" />

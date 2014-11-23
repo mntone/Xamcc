@@ -1,5 +1,6 @@
 #pragma once
 #include <collection.h>
+#include "INotification.h"
 
 namespace std {
 	template<>
@@ -12,7 +13,7 @@ namespace std {
 	};
 }
 
-namespace Mntone { namespace Xamcc { 
+namespace Mntone { namespace Xamcc { namespace DemoApp { namespace Core {
 
 	class DataProcessor
 	{
@@ -21,12 +22,14 @@ namespace Mntone { namespace Xamcc {
 
 		::Platform::Collections::Vector<Windows::Foundation::DateTime>^ GetVector();
 		::Platform::Collections::Vector<Windows::Foundation::DateTime>^ GetVector2();
+		::Platform::Collections::Vector<INotification^>^ GetVector3();
 
 	private:
 		::Platform::Collections::Vector<Windows::Foundation::DateTime>^ Vector_;
 		::Platform::Collections::Vector<Windows::Foundation::DateTime>^ Vector2_;
+		::Platform::Collections::Vector<INotification^>^ Vector3_;
 
 		::Windows::System::Threading::ThreadPoolTimer^ timer_;
 	};
 
-} }
+} } } }

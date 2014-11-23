@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata minClientVersion="2.5">
         <id>Xamcc</id>
-        <version>0.9.2</version>
+        <version>0.9.3</version>
         <title>Xamcc</title>
         <authors>mntone</authors>
         <owners>mntone</owners>
@@ -11,7 +11,7 @@
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>Xamcc is MVVM infrastructure for C++/CX. Include Xamcc.h file and try it!</description>
         <summary>Xamcc is MVVM infrastructure for C++/CX.</summary>
-        <releaseNotes>Implements NumberComparisonToBoolean/VisibilityConverter.</releaseNotes>
+        <releaseNotes>Implements TypedDataTemplateSelector.</releaseNotes>
         <copyright>Copyright (c) 2014, mntone. All rights reserved.</copyright>
         <language>en-US</language>
         <tags>WinRT Windows WindowsClient WindowsPhone mntone 8.1 C++/CX Xamcc MVVM UI infrastructure</tags>

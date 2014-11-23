@@ -46,6 +46,11 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			::Platform::Collections::Vector<::Platform::String^>^ get();
 			void set( ::Platform::Collections::Vector<::Platform::String^>^ value );
 		}
+		property ::Platform::Collections::Vector<Core::INotification^>^ ViewModelCollection3
+		{
+			::Platform::Collections::Vector<Core::INotification^>^ get();
+			void set( ::Platform::Collections::Vector<Core::INotification^>^ value );
+		}
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 		property bool IsIndicatorEnabled
@@ -110,11 +115,14 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 
 	private:
 		::Mntone::Xamcc::DispatcherHelper^ dispatcherHelper_;
-		::Mntone::Xamcc::DataProcessor processor_;
+		::Mntone::Xamcc::DemoApp::Core::DataProcessor processor_;
 
 		::Mntone::Xamcc::Foundation::EventWrapper<::Windows::Foundation::Collections::IObservableVector<::Windows::Foundation::DateTime>>
 			^ viewModelCollectionEventWrapper_,
 			^ viewModelCollection2EventWrapper_;
+
+		::Mntone::Xamcc::Foundation::EventWrapper<::Windows::Foundation::Collections::IObservableVector<Core::INotification^>>
+			^ viewModelCollection3EventWrapper_;
 
 		static Windows::UI::Xaml::DependencyProperty
 			^ ButtonMessageProperty_,
@@ -123,6 +131,7 @@ namespace Mntone { namespace Xamcc { namespace DemoApp { namespace ViewModels {
 			^ ButtonAlwaysCanExecuteCommandProperty_,
 			^ ViewModelCollectionProperty_,
 			^ ViewModelCollection2Property_,
+			^ ViewModelCollection3Property_,
 			^ ComparisonValueProperty_;
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP

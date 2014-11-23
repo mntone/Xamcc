@@ -66,6 +66,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)number_cast.h">
       <Filter>internal</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Controls\TypedDataTemplateSelector.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\NumberComparisonToVisibilityConveter.cpp">
       <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Controls\TypedDataTemplateSelector.cpp">
+      <Filter>Controls</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@
 	xmlns:i="using:Microsoft.Xaml.Interactivity"
 	xmlns:b="using:Mntone.Xamcc.Interactions"
 	xmlns:c="using:Mntone.Xamcc.Converters"
+	xmlns:controls="using:Mntone.Xamcc.Controls"
 	mc:Ignorable="d"
 	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 	x:Class="Mntone.Xamcc.DemoApp.Views.MainPage"
@@ -24,9 +25,11 @@
 	</i:Interaction.Behaviors>-->
 
 	<Page.Resources>
-		<c:Int32ComparisonToVisibilityConveter
-			x:Key="equalToParameterToVisibilityConverter"
+		<c:NumberComparisonToBooleanConveter
+			x:Key="EqualToParameterToVisibilityConverter"
 			ComparisonType="EqualTo" />
+		<controls:TypedDataTemplateSelector
+			x:Key="TypedDataTemplateSelector" />
 	</Page.Resources>
 
 	<Page.Transitions>
@@ -228,7 +231,7 @@
 						Grid.Row="2"
 						Grid.ColumnSpan="2"
 						Background="Aquamarine"
-						Visibility="{Binding ComparisonValue, Converter={StaticResource equalToParameterToVisibilityConverter}, ConverterParameter=0, Mode=OneWay}" />
+						Visibility="{Binding ComparisonValue, Converter={StaticResource EqualToParameterToVisibilityConverter}, ConverterParameter=0, Mode=OneWay}" />
 				</Grid>
 
 				<TextBlock
@@ -242,6 +245,31 @@
 				<ListBox
 					Height="200"
 					ItemsSource="{Binding ViewModelCollection2}" />
+
+				<ListView
+					Height="200"
+					ItemTemplateSelector="{StaticResource TypedDataTemplateSelector}"
+					ItemsSource="{Binding ViewModelCollection3}">
+					<ListView.Resources>
+						<DataTemplate
+							x:Key="Type:Mntone.Xamcc.DemoApp.Core.FavoriteNotification">
+							<Border
+								Margin="5">
+								<TextBlock
+									Text="Favorited" />
+							</Border>
+						</DataTemplate>
+						<DataTemplate
+							x:Key="Type:Mntone.Xamcc.DemoApp.Core.FollowNotification">
+							<Border
+								Margin="5"
+								Background="DarkMagenta">
+								<TextBlock
+									Text="Followed" />
+							</Border>
+						</DataTemplate>
+					</ListView.Resources>
+				</ListView>
 			</StackPanel>
 		</ScrollViewer>
 	</Grid>

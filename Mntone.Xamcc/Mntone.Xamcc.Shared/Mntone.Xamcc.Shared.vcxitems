@@ -37,6 +37,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)include\Xamcc.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)include\ViewModelHelper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Controls\VisualTreeHelper2.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Controls\TypedDataTemplateSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Converters\BooleanToNegativeBooleanConverter.cpp" />
@@ -51,6 +52,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Controls\VisualTreeHelper2.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Controls\TypedDataTemplateSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />

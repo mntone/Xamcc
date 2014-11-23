@@ -1,5 +1,7 @@
 ﻿#pragma once
-#include "Views/MainPage.g.h"
+#include "Views\MainPage.g.h"
+#include "Core\FavoriteNotification.h"
+#include "Core\FollowNotification.h"
 
 namespace Mntone { namespace Xamcc { namespace DemoApp { namespace Views {
 
