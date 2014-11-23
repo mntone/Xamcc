@@ -25,17 +25,41 @@ This component and demo application is under “MIT license.”
 	  dispatcher,
 	  &eventWrapper );
 
-### Int32 Comparison Converter
+### Number Comparison converter
 	<Grid>
 	  <Grid.Resources>
-	    <c:Int32ComparisonToVisibilityConveter
+	    <converters:NumberComparisonToVisibilityConveter
 	      x:Key="EqualToParameterToVisibilityConverter"
+	      NumberType="Int32"
 	      ComparisonType="EqualTo" />
 	  </Grid.Resources>
 	  <Border
 	    Background="Red"
 	    Visibility="{Binding Age, Converter={StaticResource equalToParameterToVisibilityConverter}, ConverterParameter=2, Mode=OneWay}" />
 	  <!-- Visible Border object when Age == 2. -->
+	</Grid>
+
+### Typed DateTemplate selector
+	<Grid>
+	  <Grid.Resources>
+	    <controls:TypedDataTemplateSelector x:Key="TypedDataTemplateSelector" />
+	  </Grid.Resources>
+	  <ListView
+	    ItemTemplateSelector="{StaticResource TypedDataTemplateSelector}"
+	    ItemsSource="{Binding XCollectiton}">
+	    <ListView.Resources>
+	      <DataTemplate x:Key="Type:X.AObject">
+	        <Border Margin="5">
+	  	      <TextBlock Text="A" />
+	        </Border>
+	      </DataTemplate>
+	      <DataTemplate x:Key="Type:X.BObject">
+	        <Border Margin="5">
+		      <TextBlock Text="B" />
+		    </Border>
+		  </DataTemplate>
+	    </ListView.Resources>
+	  </ListView>
 	</Grid>
 
 ### Binding window title (Windows only)
