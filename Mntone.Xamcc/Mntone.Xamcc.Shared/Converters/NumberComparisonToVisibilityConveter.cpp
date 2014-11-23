@@ -49,46 +49,48 @@ void NumberComparisonToVisibilityConveter::ComparisonType::set( MXC::ComparisonT
 	UpdateFunction();
 }
 
-template<typename N>
-function<Object^( Object^, String^ )> SetComparisonFunctionV( MXC::ComparisonType type )
-{
-	function<bool( N, N )> comparisonInnerFunc;
-	switch( type )
+namespace {
+	template<typename N>
+	function<Object ^ ( Object^, String^ )> GetComparisonFunction( MXC::ComparisonType type )
 	{
-	case MXC::ComparisonType::NotEqualTo:
-		comparisonInnerFunc = not_equal_to<N>();
-		break;
+		function<bool( N, N )> comparisonInnerFunc;
+		switch( type )
+		{
+		case MXC::ComparisonType::NotEqualTo:
+			comparisonInnerFunc = not_equal_to<N>();
+			break;
 
-	case MXC::ComparisonType::LessThan:
-		comparisonInnerFunc = less<N>();
-		break;
+		case MXC::ComparisonType::LessThan:
+			comparisonInnerFunc = less<N>();
+			break;
 
-	case MXC::ComparisonType::LessThanOrEqualTo:
-		comparisonInnerFunc = less_equal<N>();
-		break;
+		case MXC::ComparisonType::LessThanOrEqualTo:
+			comparisonInnerFunc = less_equal<N>();
+			break;
 
-	case MXC::ComparisonType::GreaterThan:
-		comparisonInnerFunc = greater<N>();
-		break;
+		case MXC::ComparisonType::GreaterThan:
+			comparisonInnerFunc = greater<N>();
+			break;
 
-	case MXC::ComparisonType::GreaterThanOrEqualTo:
-		comparisonInnerFunc = greater_equal<N>();
-		break;
+		case MXC::ComparisonType::GreaterThanOrEqualTo:
+			comparisonInnerFunc = greater_equal<N>();
+			break;
 
-	case MXC::ComparisonType::EqualTo:
-	default:
-		comparisonInnerFunc = equal_to<N>();
-		break;
-	};
+		case MXC::ComparisonType::EqualTo:
+		default:
+			comparisonInnerFunc = equal_to<N>();
+			break;
+		};
 
-	return [comparisonInnerFunc]( Object^ value, String^ parameter )
-	{
-		auto numberValue = dynamic_cast<IBox<N>^>( value );
-		N numberParameter = parameter ? number_cast<N>( parameter ) : 0;
-		return numberValue
-			? ( comparisonInnerFunc( numberValue->Value, numberParameter ) ? Visibility::Visible : Visibility::Collapsed )
-			: DependencyProperty::UnsetValue;
-	};
+		return [comparisonInnerFunc]( Object^ value, String^ parameter )
+		{
+			auto numberValue = dynamic_cast<IBox<N>^>( value );
+			N numberParameter = parameter ? number_cast<N>( parameter ) : 0;
+			return numberValue
+				? ( comparisonInnerFunc( numberValue->Value, numberParameter ) ? Visibility::Visible : Visibility::Collapsed )
+				: DependencyProperty::UnsetValue;
+		};
+	}
 }
 
 void NumberComparisonToVisibilityConveter::UpdateFunction()
@@ -96,36 +98,36 @@ void NumberComparisonToVisibilityConveter::UpdateFunction()
 	switch( NumberType_ )
 	{
 	case MXC::NumberType::Int16:
-		comparisonFunction_ = SetComparisonFunctionV<int16>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<int16>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::UInt16:
-		comparisonFunction_ = SetComparisonFunctionV<uint16>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<uint16>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::UInt32:
-		comparisonFunction_ = SetComparisonFunctionV<uint32>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<uint32>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::Int64:
-		comparisonFunction_ = SetComparisonFunctionV<int64>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<int64>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::UInt64:
-		comparisonFunction_ = SetComparisonFunctionV<uint64>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<uint64>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::Single:
-		comparisonFunction_ = SetComparisonFunctionV<float32>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<float32>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::Double:
-		comparisonFunction_ = SetComparisonFunctionV<float64>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<float64>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::Int32:
 	default:
-		comparisonFunction_ = SetComparisonFunctionV<int32>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<int32>( ComparisonType_ );
 		break;
 	}
 }

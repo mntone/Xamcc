@@ -49,44 +49,46 @@ void NumberComparisonToBooleanConveter::ComparisonType::set( MXC::ComparisonType
 	UpdateFunction();
 }
 
-template<typename N>
-function<Object^( Object^, String^ )> SetComparisonFunction( MXC::ComparisonType type )
-{
-	function<bool( N, N )> comparisonInnerFunc;
-	switch( type )
+namespace {
+	template<typename N>
+	function<Object ^ ( Object^, String^ )> GetComparisonFunction( MXC::ComparisonType type )
 	{
-	case MXC::ComparisonType::NotEqualTo:
-		comparisonInnerFunc = not_equal_to<N>();
-		break;
+		function<bool( N, N )> comparisonInnerFunc;
+		switch( type )
+		{
+		case MXC::ComparisonType::NotEqualTo:
+			comparisonInnerFunc = not_equal_to<N>();
+			break;
 
-	case MXC::ComparisonType::LessThan:
-		comparisonInnerFunc = less<N>();
-		break;
+		case MXC::ComparisonType::LessThan:
+			comparisonInnerFunc = less<N>();
+			break;
 
-	case MXC::ComparisonType::LessThanOrEqualTo:
-		comparisonInnerFunc = less_equal<N>();
-		break;
+		case MXC::ComparisonType::LessThanOrEqualTo:
+			comparisonInnerFunc = less_equal<N>();
+			break;
 
-	case MXC::ComparisonType::GreaterThan:
-		comparisonInnerFunc = greater<N>();
-		break;
+		case MXC::ComparisonType::GreaterThan:
+			comparisonInnerFunc = greater<N>();
+			break;
 
-	case MXC::ComparisonType::GreaterThanOrEqualTo:
-		comparisonInnerFunc = greater_equal<N>();
-		break;
+		case MXC::ComparisonType::GreaterThanOrEqualTo:
+			comparisonInnerFunc = greater_equal<N>();
+			break;
 
-	case MXC::ComparisonType::EqualTo:
-	default:
-		comparisonInnerFunc = equal_to<N>();
-		break;
-	};
+		case MXC::ComparisonType::EqualTo:
+		default:
+			comparisonInnerFunc = equal_to<N>();
+			break;
+		};
 
-	return [comparisonInnerFunc]( Object^ value, String^ parameter )
-	{
-		auto numberValue = dynamic_cast<IBox<N>^>( value );
-		N numberParameter = parameter ? number_cast<N>( parameter ) : 0;
-		return numberValue ? comparisonInnerFunc( numberValue->Value, numberParameter ) : DependencyProperty::UnsetValue;
-	};
+		return [comparisonInnerFunc]( Object^ value, String^ parameter )
+		{
+			auto numberValue = dynamic_cast<IBox<N>^>( value );
+			N numberParameter = parameter ? number_cast<N>( parameter ) : 0;
+			return numberValue ? comparisonInnerFunc( numberValue->Value, numberParameter ) : DependencyProperty::UnsetValue;
+		};
+	}
 }
 
 void NumberComparisonToBooleanConveter::UpdateFunction()
@@ -94,36 +96,36 @@ void NumberComparisonToBooleanConveter::UpdateFunction()
 	switch( NumberType_ )
 	{
 	case MXC::NumberType::Int16:
-		comparisonFunction_ = SetComparisonFunction<int16>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<int16>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::UInt16:
-		comparisonFunction_ = SetComparisonFunction<uint16>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<uint16>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::UInt32:
-		comparisonFunction_ = SetComparisonFunction<uint32>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<uint32>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::Int64:
-		comparisonFunction_ = SetComparisonFunction<int64>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<int64>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::UInt64:
-		comparisonFunction_ = SetComparisonFunction<uint64>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<uint64>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::Single:
-		comparisonFunction_ = SetComparisonFunction<float32>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<float32>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::Double:
-		comparisonFunction_ = SetComparisonFunction<float64>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<float64>( ComparisonType_ );
 		break;
 
 	case MXC::NumberType::Int32:
 	default:
-		comparisonFunction_ = SetComparisonFunction<int32>( ComparisonType_ );
+		comparisonFunction_ = GetComparisonFunction<int32>( ComparisonType_ );
 		break;
 	}
 }
