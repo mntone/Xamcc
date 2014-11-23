@@ -17,14 +17,15 @@ DataTemplate^ TypedDataTemplateSelector::SelectTemplateCore( Object^ item, Depen
 	return FindTemplate( item, targetKey, container );
 }
 
-#define CHECK( __RETURN__ ) if( ( __RETURN__ ) != nullptr ) { return( __RETURN__ ); }
+#define ADD( __KEY__, __TARGET__ ) auto itr = templateMap_.find( __KEY__ ); if( itr == templateMap_.end() ) { templateMap_.emplace( __KEY__, __TARGET__ ); }
+#define CHECK_AND_ADD( __KEY__, __RETURN__ ) if( ( __RETURN__ ) != nullptr ) { ADD( __KEY__, __RETURN__ ); return( __RETURN__ ); }
 DataTemplate^ TypedDataTemplateSelector::FindTemplate( Object^ item, String^ targetKey, DependencyObject^ container )
 {
 	DataTemplate^ ret;
 	if( IsCacheEnabled_ )
 	{
 		ret = FindCachingTemplate( targetKey );
-		CHECK( ret );
+		CHECK_AND_ADD( targetKey, ret );
 	}
 
 	if( container != nullptr )
@@ -33,14 +34,14 @@ DataTemplate^ TypedDataTemplateSelector::FindTemplate( Object^ item, String^ tar
 		while( frameworkElement != nullptr )
 		{
 			ret = FindTemplate( frameworkElement->Resources, targetKey );
-			CHECK( ret );
+			CHECK_AND_ADD( targetKey, ret );
 
 			frameworkElement = dynamic_cast<FrameworkElement^>( VisualTreeHelper::GetParent( frameworkElement ) );
 		}
 	}
 	
 	ret = FindTemplate( Application::Current->Resources, targetKey );
-	CHECK( ret );
+	CHECK_AND_ADD( targetKey, ret );
 
 	if( targetKey != DefaultTemplateKey_ )
 	{
@@ -49,6 +50,7 @@ DataTemplate^ TypedDataTemplateSelector::FindTemplate( Object^ item, String^ tar
 		{
 			throw ref new FailureException();
 		}
+		ADD( targetKey, ret );
 	}
 	return ret;
 }
